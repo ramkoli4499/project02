@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Padviram – AI Job Portal</title>
+  <meta name="description" content="Padviram AI Job Portal – Multilingual, search & filters, resume upload, AI suggestions, social links, location, and ₹499/₹999 plans." />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config={ theme:{ extend:{ colors:{ brand:'#4f46e5' } } } }
+  </script>
+  <style>
+    html,body{font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif}
+    .card{box-shadow:0 10px 30px rgba(2,8,20,.06); border-radius:1rem}
+    .pill{border-radius:9999px}
+    .chip{border-radius:9999px; font-size:.75rem; padding:.25rem .6rem; background:#eef2ff; color:#3730a3}
+    .fade-in{animation:fade .6s ease both}
+    @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+  </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-50 via-white to-white text-slate-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-indigo-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="#" class="flex items-center gap-3">
+        <img src="https://padviram-project.github.io/assets/padviram-logo.png" onerror="this.style.display='none'" alt="Padviram Logo" class="h-10 w-10 object-contain"/>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight">Padviram</h1>
+          <p class="text-xs text-slate-500 -mt-1">After graduation, let your job journey begin with us!</p>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#jobs" class="hover:underline">Jobs</a>
+        <a href="#companies" class="hover:underline">Companies</a>
+        <a href="#resources" class="hover:underline">Career Resources</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <select id="langSelect" class="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300">
+          <option value="en">English</option>
+          <option value="mr">Marathi</option>
+          <option value="hi">Hindi</option>
+          <option value="kn">Kannada</option>
+        </select>
+        <a href="#plans" class="hidden sm:inline-flex pill bg-brand text-white px-3 py-2 text-sm hover:bg-indigo-500">Plans</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 grid md:grid-cols-2 gap-8 items-center">
+      <div class="fade-in">
+        <h2 id="t_hero_title" class="text-3xl sm:text-5xl font-extrabold leading-tight">Kickstart your career with AI.</h2>
+        <p id="t_hero_sub" class="mt-4 text-slate-600">Smart search, resume upload, and instant AI job suggestions tailored for fresh graduates.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#jobs" class="pill bg-slate-900 text-white px-5 py-3 hover:bg-slate-700" id="t_btn_find_jobs">Find Jobs</a>
+          <button id="btnOpenResume" class="pill border border-slate-300 px-5 py-3 hover:border-slate-400" type="button">
+            <span id="t_btn_upload_resume">Upload Resume</span>
+          </button>
+        </div>
+        <div class="mt-4 text-xs text-slate-500">
+          <span class="chip">AI Suggestions</span>
+          <span class="chip">Govt + Private</span>
+          <span class="chip">Multi‑Language</span>
+        </div>
+      </div>
+      <div class="fade-in card p-6 bg-white relative">
+        <div class="absolute -top-3 -right-3 bg-brand text-white text-xs pill px-3 py-1 shadow">New</div>
+        <h3 id="t_quick_search" class="font-semibold text-lg mb-3">Quick Search</h3>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <input id="q" class="border rounded-lg px-3 py-2" placeholder="Role, skill (e.g., React, Sales)" />
+          <input id="loc" class="border rounded-lg px-3 py-2" placeholder="Location (e.g., Pune)" />
+          <select id="type" class="border rounded-lg px-3 py-2">
+            <option value="">Any Type</option>
+            <option value="fulltime">Full‑Time</option>
+            <option value="intern">Internship</option>
+            <option value="remote">Remote</option>
+            <option value="contract">Contract</option>
+          </select>
+          <select id="exp" class="border rounded-lg px-3 py-2">
+            <option value="">Any Experience</option>
+            <option value="0">Fresher</option>
+            <option value="1-3">1–3 yrs</option>
+            <option value="3+">3+ yrs</option>
+          </select>
+          <button id="btnSearch" class="sm:col-span-2 pill bg-brand text-white px-5 py-2.5 hover:bg-indigo-500">Search</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Suggestion Panel -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+    <div class="card bg-white p-4 md:p-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <h3 id="t_ai_title" class="text-xl font-bold">AI Job Suggestions</h3>
+        <div class="flex gap-2">
+          <input id="aiPrompt" class="border rounded-lg px-3 py-2 w-64 max-w-full" placeholder="e.g., I am a B.Com fresher in Pune" />
+          <button id="btnSuggest" class="pill bg-slate-900 text-white px-4 py-2 hover:bg-slate-700">Suggest</button>
+        </div>
+      </div>
+      <p id="t_ai_tip" class="text-sm text-slate-500 mt-2">Tip: Mention degree, skills, preferred location, and salary range.</p>
+      <div id="aiResults" class="mt-4 grid md:grid-cols-2 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- Jobs -->
+  <section id="jobs" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="flex items-end justify-between gap-3 mb-4">
+      <div>
+        <h3 id="t_jobs_title" class="text-2xl font-bold">Latest Jobs</h3>
+        <p class="text-sm text-slate-500" id="t_jobs_sub">Government & Private openings curated daily.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-sm text-slate-600" for="sort">Sort</label>
+        <select id="sort" class="border rounded-lg px-3 py-2 text-sm">
+          <option value="new">Newest</option>
+          <option value="sal">Salary</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="jobList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+    <div class="text-center mt-6">
+      <button id="btnLoadMore" class="pill border px-4 py-2 hover:bg-slate-50">Load More</button>
+    </div>
+  </section>
+
+  <!-- Social Section (from brand kit) -->
+  <section class="bg-slate-900 text-white py-12">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold">Connect With Us</h3>
+      <p class="mt-2 text-slate-300">Follow Padviram on social media to stay updated with the latest opportunities.</p>
+      <div class="mt-6 flex justify-center gap-4 text-lg">
+        <a href="https://www.instagram.com/padviram.in" target="_blank" class="pill px-4 py-2 bg-white/10 hover:bg-white/20">Instagram</a>
+        <a href="https://whatsapp.com/channel/0029VbAsYEcCBtxCoHfgYk3Y" target="_blank" class="pill px-4 py-2 bg-white/10 hover:bg-white/20">WhatsApp</a>
+        <a href="https://www.facebook.com/share/1A9s1kR1GR/" target="_blank" class="pill px-4 py-2 bg-white/10 hover:bg-white/20">Facebook</a>
+        <a href="https://www.linkedin.com/company/padviram-emplosee-services/" target="_blank" class="pill px-4 py-2 bg-white/10 hover:bg-white/20">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section class="py-12 bg-indigo-50" id="contact">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h3 class="text-2xl font-bold mb-3">Visit Our Office</h3>
+        <div class="space-y-2 text-slate-700">
+          <div>📍 Pune, Maharashtra, India</div>
+          <div>☎️ +91 9503621862</div>
+          <div>✉️ info@padviram.com</div>
+        </div>
+        <p class="text-sm text-slate-600 mt-4">We're located in the heart of Pune's tech district. Feel free to visit during business hours.</p>
+      </div>
+      <div class="card bg-white p-0 overflow-hidden">
+        <div class="h-72 flex items-center justify-center text-slate-500">Google Maps Integration</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section id="plans" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h3 id="t_plans_title" class="text-3xl font-extrabold text-center mb-2">Choose Your Plan</h3>
+    <p id="t_plans_sub" class="text-center text-slate-600 mb-8">Start free. Upgrade anytime for AI extras & automation.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Free -->
+      <div class="card bg-white p-6">
+        <h4 class="text-xl font-bold">Free</h4>
+        <p class="text-sm text-slate-500">Basic search + limited AI tips</p>
+        <div class="my-4 text-3xl font-extrabold">₹0</div>
+        <ul class="space-y-2 text-sm">
+          <li>✓ Job search & filters</li>
+          <li>✓ Upload resume</li>
+          <li>– AI suggestions (3/day)</li>
+          <li>– Social links & alerts</li>
+        </ul>
+        <button class="mt-6 pill w-full border px-4 py-2 hover:bg-slate-50">Get Started</button>
+      </div>
+      <!-- Monthly -->
+      <div class="card bg-white p-6 border-2 border-brand relative">
+        <div class="absolute -top-3 left-6 pill px-3 py-1 bg-brand text-white text-xs">Popular</div>
+        <h4 class="text-xl font-bold">Premium Monthly</h4>
+        <p class="text-sm text-slate-500">Auto AI + Resume insights</p>
+        <div class="my-4 text-3xl font-extrabold">₹499<span class="text-base font-medium text-slate-500">/mo</span></div>
+        <ul class="space-y-2 text-sm">
+          <li>✓ Unlimited AI suggestions</li>
+          <li>✓ Auto‑apply assistant (manual confirm)</li>
+          <li>✓ Resume score & tips</li>
+          <li>✓ Priority support</li>
+        </ul>
+        <a href="upi://pay?pa=padviram@upi&pn=Padviram%20Premium%20Monthly&am=499&cu=INR" class="mt-6 pill block text-center bg-brand text-white px-4 py-2 hover:bg-indigo-500">Pay via UPI</a>
+      </div>
+      <!-- Lifetime -->
+      <div class="card bg-white p-6">
+        <h4 class="text-xl font-bold">Premium Lifetime</h4>
+        <p class="text-sm text-slate-500">One‑time payment</p>
+        <div class="my-4 text-3xl font-extrabold">₹999</div>
+        <ul class="space-y-2 text-sm">
+          <li>✓ Everything in Monthly</li>
+          <li>✓ Job alerts (WhatsApp/Email)</li>
+          <li>✓ Brand kit & templates</li>
+          <li>✓ Future features</li>
+        </ul>
+        <a href="upi://pay?pa=padviram@upi&pn=Padviram%20Premium%20Lifetime&am=999&cu=INR" class="mt-6 pill block text-center bg-slate-900 text-white px-4 py-2 hover:bg-slate-700">Pay via UPI</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid md:grid-cols-2 gap-6">
+      <div>
+        <h4 class="font-bold">Padviram Employee Services</h4>
+        <p class="text-sm text-slate-500 mt-2">Made in India. Empowering graduates across languages with AI.</p>
+        <div class="flex gap-3 mt-3 text-sm">
+          <a class="underline" href="https://www.instagram.com/padviram.in?igsh=MXQ0OHc4dWNwZG4zaw==" target="_blank" rel="noopener">Instagram</a>
+          <a class="underline" href="https://www.threads.com/@padviram.in" target="_blank" rel="noopener">Threads</a>
+          <a class="underline" href="https://www.facebook.com/share/1DjPmfSzSf/" target="_blank" rel="noopener">Facebook 1</a>
+          <a class="underline" href="https://www.facebook.com/share/1A9s1kR1GR/" target="_blank" rel="noopener">Facebook 2</a>
+          <a class="underline" href="https://t.me/Ramkoli4499" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <h5 class="font-semibold mb-2">Resources</h5>
+          <ul class="space-y-1 text-sm text-slate-600">
+            <li><a class="underline" href="#jobs">Jobs</a></li>
+            <li><a class="underline" href="#plans">Plans</a></li>
+            <li><a class="underline" href="#">Resume Template</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-2">Contact</h5>
+          <ul class="space-y-1 text-sm text-slate-600">
+            <li>Email: support@padviram.in</li>
+            <li>WhatsApp: 9503621862</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-xs text-slate-500 py-4">© <span id="year"></span> Padviram. All rights reserved.</div>
+  </footer>
+
+  <!-- Resume Upload Modal -->
+  <dialog id="resumeModal" class="backdrop:bg-black/40 rounded-2xl p-0 w-[95%] max-w-xl">
+    <form method="dialog" class="bg-white p-5 sm:p-6 rounded-2xl">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-bold" id="t_resume_title">Upload Resume</h3>
+        <button value="cancel" class="pill border px-3 py-1">✕</button>
+      </div>
+      <p class="text-sm text-slate-600 mt-1" id="t_resume_sub">PDF/DOC up to 5MB. AI will parse skills and match jobs.</p>
+      <div class="mt-4">
+        <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" class="block w-full text-sm"/>
+      </div>
+      <div id="resumeInfo" class="mt-3 text-sm text-slate-600 hidden"></div>
+      <div class="mt-5 flex justify-end gap-2">
+        <button value="cancel" class="pill border px-4 py-2">Close</button>
+        <button id="btnParse" type="button" class="pill bg-brand text-white px-4 py-2">Parse with AI</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Floating Chatbot Button -->
+  <button id="chatBtn" title="AI Chatbot" class="fixed bottom-5 right-5 h-14 w-14 rounded-full bg-brand text-white shadow-xl text-2xl">🧠</button>
+  <div id="chatPanel" class="hidden fixed bottom-24 right-5 w-80 max-w-[92vw] card bg-white p-4">
+    <div class="flex items-center justify-between">
+      <h4 class="font-bold text-sm" id="t_chat_title">Padviram AI</h4>
+      <button id="chatClose" class="pill border px-2 text-sm">✕</button>
+    </div>
+    <div id="chatLog" class="mt-3 h-56 overflow-auto border rounded-lg p-3 text-sm bg-slate-50"></div>
+    <div class="mt-3 flex gap-2">
+      <input id="chatInput" class="border rounded-lg px-3 py-2 flex-1" placeholder="Ask about jobs, skills…"/>
+      <button id="chatSend" class="pill bg-slate-900 text-white px-3">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== MULTI-LANGUAGE STRINGS =====
+    const T = {
+      en: {hero_title:'Kickstart your career with AI.', hero_sub:'Smart search, resume upload, and instant AI job suggestions tailored for fresh graduates.', btn_find_jobs:'Find Jobs', btn_upload_resume:'Upload Resume', quick_search:'Quick Search', ai_title:'AI Job Suggestions', ai_tip:'Tip: Mention degree, skills, preferred location, and salary range.', jobs_title:'Latest Jobs', jobs_sub:'Government & Private openings curated daily.', plans_title:'Choose Your Plan', plans_sub:'Start free. Upgrade anytime for AI extras & automation.', resume_title:'Upload Resume', resume_sub:'PDF/DOC up to 5MB. AI will parse skills and match jobs.', chat_title:'Padviram AI'},
+      mr: {hero_title:'AI सोबत तुमची करिअर सुरुवात करा.', hero_sub:'स्मार्ट सर्च, रिझ्युमे अपलोड आणि फ्रेशर्ससाठी त्वरित AI जॉब सुचना.', btn_find_jobs:'जॉब शोधा', btn_upload_resume:'रिझ्युमे अपलोड', quick_search:'क्विक सर्च', ai_title:'AI जॉब सुचना', ai_tip:'टीप: डिग्री, स्किल्स, लोकेशन आणि पगार यांचा उल्लेख करा.', jobs_title:'ताज्या नोकऱ्या', jobs_sub:'शासकीय व खाजगी भरती दररोज अपडेट.', plans_title:'तुमची योजना निवडा', plans_sub:'फ्रीने सुरु करा. कधीही अपग्रेड करा.', resume_title:'रिझ्युमे अपलोड', resume_sub:'PDF/DOC 5MB पर्यंत. AI स्किल्स व मॅचिंग करेल.', chat_title:'Padviram AI'},
+      hi: {hero_title:'AI के साथ अपना करियर शुरू करें.', hero_sub:'स्मार्ट सर्च, रिज़्यूमे अपलोड और फ्रेशर्स के लिए त्वरित AI जॉब सुझाव.', btn_find_jobs:'जॉब खोजें', btn_upload_resume:'रिज़्यूमे अपलोड', quick_search:'त्वरित खोज', ai_title:'AI जॉब सुझाव', ai_tip:'टिप: डिग्री, कौशल, स्थान और वेतन का उल्लेख करें.', jobs_title:'नवीनतम नौकरियां', jobs_sub:'सरकारी और निजी अवसर प्रतिदिन अपडेट.', plans_title:'अपनी योजना चुनें', plans_sub:'फ्री से शुरू करें. कभी भी अपग्रेड करें.', resume_title:'रिज़्यूमे अपलोड', resume_sub:'PDF/DOC 5MB तक. AI कौशल और मिलान करेगा.', chat_title:'Padviram AI'},
+      kn: {hero_title:'AI ಜೊತೆ ನಿಮ್ಮ ವೃತ್ತಿ ಆರಂಭಿಸಿ.', hero_sub:'ಸ್ಮಾರ್ಟ್ ಹುಡುಕಾಟ, ರೆಸ್ಯೂಮೆ ಅಪ್‌ಲೋಡ್ ಮತ್ತು ಫ್ರೆಶರ್ಸ್‌ಗಾಗಿ ತಕ್ಷಣದ AI ಉದ್ಯೋಗ ಸಲಹೆಗಳು.', btn_find_jobs:'ಉದ್ಯೋಗ ಹುಡುಕಿ', btn_upload_resume:'ರೆಸ್ಯೂಮೆ ಅಪ್‌ಲೋಡ್', quick_search:'ಕ್ವಿಕ್ ಸರ್ಚ್', ai_title:'AI ಉದ್ಯೋಗ ಸಲಹೆಗಳು', ai_tip:'ಟಿಪ್: ಪದವಿ, ಕೌಶಲ್ಯ, ಸ್ಥಳ ಮತ್ತು ವೇತನವನ್ನು ಉಲ್ಲೇಖಿಸಿ.', jobs_title:'ತಾಜಾ ಉದ್ಯೋಗಗಳು', jobs_sub:'ಸರ್ಕಾರಿ + ಖಾಸಗಿ ಅವಕಾಶಗಳು ಪ್ರತಿದಿನ.', plans_title:'ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ', plans_sub:'ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ. ಯಾವಾಗ ಬೇಕಾದರೂ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.', resume_title:'ರೆಸ್ಯೂಮೆ ಅಪ್‌ಲೋಡ್', resume_sub:'PDF/DOC 5MB ವರೆಗೆ. AI ಕೌಶಲ್ಯಗಳನ್ನು ವಿಶ್ಲೇಷಿಸುತ್ತದೆ.', chat_title:'Padviram AI'}
+    }
+    function applyLang(lang){
+      const t=T[lang]||T.en
+      document.getElementById('t_hero_title').textContent=t.hero_title
+      document.getElementById('t_hero_sub').textContent=t.hero_sub
+      document.getElementById('t_btn_find_jobs').textContent=t.btn_find_jobs
+      document.getElementById('t_btn_upload_resume').textContent=t.btn_upload_resume
+      document.getElementById('t_quick_search').textContent=t.quick_search
+      document.getElementById('t_ai_title').textContent=t.ai_title
+      document.getElementById('t_ai_tip').textContent=t.ai_tip
+      document.getElementById('t_jobs_title').textContent=t.jobs_title
+      document.getElementById('t_jobs_sub').textContent=t.jobs_sub
+      document.getElementById('t_plans_title').textContent=t.plans_title
+      document.getElementById('t_plans_sub').textContent=t.plans_sub
+      document.getElementById('t_resume_title').textContent=t.resume_title
+      document.getElementById('t_resume_sub').textContent=t.resume_sub
+      document.getElementById('t_chat_title').textContent=t.chat_title
+      localStorage.setItem('pad_lang', lang)
+    }
+    const langSelect=document.getElementById('langSelect'); langSelect.addEventListener('change', (e)=>applyLang(e.target.value)); applyLang(localStorage.getItem('pad_lang')||'en')
+
+    // ===== DUMMY JOB DATA (Govt + Private) =====
+    const jobs=[
+      {id:1,title:'Front‑End Developer (React)',company:'TechNova',type:'fulltime',exp:'1-3',loc:'Pune',salary:6.5,tags:['react','javascript','html','css'],source:'private'},
+      {id:2,title:'Junior Accountant (B.Com)',company:'FinCore',type:'fulltime',exp:'0',loc:'Mumbai',salary:3.2,tags:['bcom','tally','gst'],source:'private'},
+      {id:3,title:'Sales Associate – Fresher',company:'RetailKart',type:'fulltime',exp:'0',loc:'Bengaluru',salary:2.8,tags:['sales','communication'],source:'private'},
+      {id:4,title:'Data Analyst Intern',company:'Insight AI',type:'intern',exp:'0',loc:'Remote',salary:1.2,tags:['excel','sql','python'],source:'private'},
+      {id:5,title:'Clerk – Maharashtra Govt',company:'Mah Gov Dept',type:'fulltime',exp:'0',loc:'Pune',salary:4.0,tags:['government','marathi','ms-cit'],source:'government'},
+      {id:6,title:'Back‑End Developer (Node.js)',company:'CloudNine',type:'fulltime',exp:'1-3',loc:'Hyderabad',salary:7.8,tags:['node','api','mongodb'],source:'private'},
+      {id:7,title:'Customer Support – Hindi',company:'HelpNow',type:'remote',exp:'0',loc:'Remote',salary:3.0,tags:['support','hindi','email'],source:'private'},
+      {id:8,title:'HR Intern',company:'TalentBee',type:'intern',exp:'0',loc:'Nashik',salary:1.0,tags:['hr','excel','communication'],source:'private'},
+      {id:9,title:'Government Apprentice',company:'PSU',type:'contract',exp:'0',loc:'Nagpur',salary:3.5,tags:['apprentice','government'],source:'government'}
+    ]
+
+    // ===== RENDER JOB CARDS =====
+    let page=1, perPage=6
+    function renderJobs(list){
+      const wrap=document.getElementById('jobList')
+      wrap.innerHTML=''
+      list.slice(0,page*perPage).forEach(j=>{
+        const el=document.createElement('div')
+        el.className='card bg-white p-5 flex flex-col'
+        el.innerHTML=`
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h4 class="font-bold">${j.title}</h4>
+              <p class="text-sm text-slate-600">${j.company} · ${j.loc}</p>
+            </div>
+            <span class="chip">${j.type}</span>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-2">${j.tags.map(t=>`<span class='chip'>${t}</span>`).join('')}</div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm text-slate-600">Salary: ₹${j.salary} LPA</div>
+            <button class="pill bg-brand text-white px-3 py-1.5 hover:bg-indigo-500" onclick="applyJob(${j.id})">Apply</button>
+          </div>`
+        wrap.appendChild(el)
+      })
+    }
+    renderJobs(jobs)
+    function applyJob(id){ alert('Application started for Job #'+id+' (demo). In Premium, auto‑apply will prefill forms!') }
+
+    // ===== SEARCH / FILTER =====
+    function doSearch(){
+      const q=document.getElementById('q').value.trim().toLowerCase()
+      const loc=document.getElementById('loc').value.trim().toLowerCase()
+      const type=document.getElementById('type').value
+      const exp=document.getElementById('exp').value
+      let filtered=jobs.filter(j=>{
+        const qMatch=!q || j.title.toLowerCase().includes(q) || j.tags.some(t=>t.includes(q))
+        const lMatch=!loc || j.loc.toLowerCase().includes(loc)
+        const tMatch=!type || j.type===type
+        const eMatch=!exp || j.exp===exp || (exp==='3+' && (j.exp==='3+'|| j.exp==='1-3'))
+        return qMatch && lMatch && tMatch && eMatch
+      })
+      const sort=document.getElementById('sort').value
+      if(sort==='sal') filtered=filtered.sort((a,b)=>b.salary-a.salary)
+      if(sort==='new') filtered=filtered.sort((a,b)=>b.id-a.id)
+      page=1
+      renderJobs(filtered)
+      window.currentFiltered=filtered
+    }
+    document.getElementById('btnSearch').addEventListener('click', doSearch)
+    document.getElementById('sort').addEventListener('change', doSearch)
+    document.getElementById('btnLoadMore').addEventListener('click', ()=>{page++; renderJobs(window.currentFiltered||jobs)})
+
+    // ===== AI SUGGEST (RULE-BASED DEMO) =====
+    function aiSuggest(){
+      const p=document.getElementById('aiPrompt').value.toLowerCase()
+      if(!p){ alert('Describe your background to get AI suggestions.'); return }
+      const wants={
+        loc:(p.match(/pune|mumbai|nagpur|nashik|bengaluru|hyderabad|remote/)||[])[0],
+        fresher:/fresher|0\s*year|b\.com|bcom|graduate/.test(p),
+        dev:/developer|react|node|javascript|coding|programming|software/.test(p),
+        sales:/sales|marketing|bd|business development/.test(p),
+        govt:/gov|government|psu|maharashtra/.test(p),
+        account:/account|tally|gst|b\.com|bcom/.test(p),
+        data:/data|excel|sql|python|analyst/.test(p)
+      }
+      let picks=jobs
+      if(wants.loc) picks=picks.filter(j=>j.loc.toLowerCase().includes(wants.loc))
+      if(wants.dev) picks=picks.filter(j=>j.tags.some(t=>['react','node','javascript','api','mongodb','html','css'].includes(t)))
+      if(wants.sales) picks=picks.filter(j=>j.tags.includes('sales'))
+      if(wants.account) picks=picks.filter(j=>j.tags.includes('tally')||j.tags.includes('gst')||j.tags.includes('bcom'))
+      if(wants.data) picks=picks.filter(j=>j.tags.includes('excel')||j.tags.includes('sql')||j.tags.includes('python'))
+      if(wants.govt) picks=picks.filter(j=>j.source==='government')
+      if(wants.fresher) picks=picks.filter(j=>j.exp==='0')
+      if(picks.length===0) picks=jobs.slice(0,3)
+      const out=document.getElementById('aiResults'); out.innerHTML=''
+      picks.slice(0,4).forEach(j=>{
+        const div=document.createElement('div')
+        div.className='card bg-white p-4'
+        div.innerHTML=`<div class='flex items-center justify-between'><div>
+          <div class='font-semibold'>${j.title}</div>
+          <div class='text-xs text-slate-500'>${j.company} · ${j.loc} · ₹${j.salary} LPA</div>
+        </div><span class='chip'>${j.type}</span></div>
+        <div class='mt-2 text-sm'>Why: matched <b>${explainMatch(j,wants).join(', ')}</b></div>
+        <div class='mt-3'><button class='pill bg-brand text-white px-3 py-1.5' onclick='applyJob(${j.id})'>Apply</button></div>`
+        out.appendChild(div)
+      })
+    }
+    function explainMatch(j,w){
+      const r=[]
+      if(w.loc && j.loc.toLowerCase().includes(w.loc)) r.push('location')
+      if(w.fresher && j.exp==='0') r.push('fresher')
+      if(w.dev && j.tags.some(t=>['react','node','javascript','api','mongodb','html','css'].includes(t))) r.push('dev skills')
+      if(w.sales && j.tags.includes('sales')) r.push('sales role')
+      if(w.account && (j.tags.includes('tally')||j.tags.includes('gst')||j.tags.includes('bcom'))) r.push('accounts')
+      if(w.data && (j.tags.includes('excel')||j.tags.includes('sql')||j.tags.includes('python'))) r.push('data skills')
+      if(w.govt && j.source==='government') r.push('government')
+      return r
+    }
+    document.getElementById('btnSuggest').addEventListener('click', aiSuggest)
+
+    // ===== RESUME PARSE (LOCAL DEMO) =====
+    const modal=document.getElementById('resumeModal')
+    document.getElementById('btnOpenResume').addEventListener('click', ()=>modal.showModal())
+    document.getElementById('btnParse').addEventListener('click', ()=>{
+      const f=document.getElementById('resumeFile').files[0]
+      if(!f){ alert('Select a file first.'); return }
+      const name=f.name.toLowerCase()
+      const guessed=[...new Set(['react','node','excel','sql','tally','gst','sales','python'].filter(k=>name.includes(k)))]
+      const info=document.getElementById('resumeInfo')
+      info.classList.remove('hidden')
+      info.innerHTML = guessed.length ? `Detected skills: <b>${guessed.join(', ')}</b>. Click Suggest to see matches.` : 'No obvious skills in filename. Still, try AI Suggest.'
+    })
+
+    // ===== SIMPLE CHATBOT (RULE-BASED) =====
+    const chatBtn=document.getElementById('chatBtn')
+    const chatPanel=document.getElementById('chatPanel')
+    const chatClose=document.getElementById('chatClose')
+    const chatLog=document.getElementById('chatLog')
+    const chatInput=document.getElementById('chatInput')
+    const chatSend=document.getElementById('chatSend')
+    chatBtn.addEventListener('click',()=>{chatPanel.classList.toggle('hidden')})
+    chatClose.addEventListener('click',()=>chatPanel.classList.add('hidden'))
+    function botSay(msg){ const div=document.createElement('div'); div.className='mb-2'; div.innerHTML=`<div class='text-xs text-slate-500'>AI</div><div class='bg-white border rounded-lg p-2'>${msg}</div>`; chatLog.appendChild(div); chatLog.scrollTop=chatLog.scrollHeight }
+    function userSay(msg){ const div=document.createElement('div'); div.className='mb-2 text-right'; div.innerHTML=`<div class='text-xs text-slate-500'>You</div><div class='inline-block bg-brand text-white rounded-lg p-2'>${msg}</div>`; chatLog.appendChild(div); chatLog.scrollTop=chatLog.scrollHeight }
+    function handleChat(){
+      const q=chatInput.value.trim(); if(!q) return; userSay(q); chatInput.value=''
+      const lower=q.toLowerCase()
+      if(/help|how|guide/.test(lower)) return botSay('Type your background (degree, skills, city) or use the AI Job Suggestions box above. Upgrade to Premium for automatic matching and alerts.')
+      if(/plan|price|premium|lifetime|499|999/.test(lower)) return botSay('Plans: Free (₹0), Premium Monthly (₹499), Premium Lifetime (₹999). Use the UPI button in Plans to pay.')
+      if(/resume|cv/.test(lower)) return botSay('Click Upload Resume on the home section. In Premium, we parse your PDF to score and recommend best jobs automatically.')
+      document.getElementById('aiPrompt').value=q; botSay('Analysing your profile… (Demo)'); setTimeout(()=>{ aiSuggest(); botSay('I have recommended jobs above under AI Job Suggestions.'); }, 400)
+    }
+    chatSend.addEventListener('click', handleChat)
+    chatInput.addEventListener('keydown', e=>{ if(e.key==='Enter') handleChat() })
+
+    // Misc
+    document.getElementById('year').textContent=new Date().getFullYear()
+  </script>
+</body>
+</html>
