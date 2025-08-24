@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padviram Academy - Delta Batch 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --secondary: #06b6d4;
+            --secondary-dark: #0891b2;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #cbd5e1;
+            --ai-primary: #10b981;
+            --ai-gradient: linear-gradient(to right, var(--ai-primary), #34d399);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--light);
+            background: linear-gradient(to bottom, var(--darker), var(--dark));
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-select {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background-color: rgba(15, 23, 42, 0.7);
+            color: var(--light);
+            border: 1px solid var(--gray);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            appearance: none;
+            padding-right: 2rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23cbd5e1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.2rem;
+        }
+        
+        .enroll-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .enroll-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.15), transparent 400px);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .ai-gradient-text {
+            background: var(--ai-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-ai {
+            background: var(--ai-gradient);
+            color: white;
+        }
+        
+        .btn-ai:hover {
+            background: linear-gradient(to right, var(--ai-primary), #22c55e);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 1px solid var(--gray);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-card {
+            background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-item {
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* AI Course Generator Section */
+        .ai-generator {
+            background: radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.15), transparent 500px);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-generator::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(rgba(16, 185, 129, 0.2), transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .ai-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .ai-generator-box {
+            background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
+        }
+        
+        .ai-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: var(--gray-light);
+        }
+        
+        .form-group select, .form-group input {
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--gray);
+            background-color: rgba(15, 23, 42, 0.6);
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .ai-result {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px dashed var(--ai-primary);
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .ai-result.visible {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .ai-course-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--ai-primary);
+        }
+        
+        .ai-course-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-detail-item {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.8rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .ai-modules {
+            margin-top: 1.5rem;
+        }
+        
+        .ai-module-item {
+            padding: 0.8rem;
+            border-left: 3px solid var(--ai-primary);
+            margin-bottom: 0.8rem;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        
+        .generate-btn {
+            background: var(--ai-gradient);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.5rem auto 0;
+            transition: all 0.3s;
+        }
+        
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .ai-loading {
+            display: none;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .ai-loading.visible {
+            display: block;
+        }
+        
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.3rem;
+            margin-top: 1rem;
+        }
+        
+        .loading-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--ai-primary);
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--gray-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .features {
+            background: radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 400px);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray-light);
+        }
+        
+        /* Curriculum Section */
+        .curriculum {
+            background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.1), transparent 400px);
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .accordion-item {
+            background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .accordion-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .week-badge {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .accordion-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray-light);
+        }
+        
+        .accordion-content ul {
+            list-style: none;
+        }
+        
+        .accordion-content li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .accordion-content li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            background: radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 400px);
+        }
+        
+        .pricing-card {
+            background: linear-gradient(to bottom, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.3);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col p {
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--gray-light);
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.3);
+            color: var(--gray);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .ai-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .ai-course-details {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .ai-course-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">P</div>
+                <span>Padviram Academy</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#ai-generator">AI Generator</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li>
+                        <div class="language-switcher">
+                            <select class="language-select" id="language-switcher">
+                                <option value="en">English</option>
+                                <option value="hi">हिन्दी</option>
+                                <option value="mr">मराठी</option>
+                                <option value="kn">ಕನ್ನಡ</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#pricing" class="enroll-btn">Enroll Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 data-translate="hero-title">Zero ते Job-Ready: <span class="gradient-text">Full Stack + DSA</span></h1>
+                <p data-translate="hero-description">वास्तविक प्रोजेक्ट्स, मुलाखत-फोकस्ड DSA आणि mentor support. 6 महिन्यांत confident developer बना.</p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary" data-translate="join-now">Join Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="#ai-generator" class="btn btn-ai" data-translate="ai-generator-btn">AI Course Generator <i class="fas fa-robot"></i></a>
+                    <a href="#curriculum" class="btn btn-secondary" data-translate="view-curriculum">View Curriculum</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <span data-translate="rating">4.8/5 रेटिंग</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="learners">25,000+ learners</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3 data-translate="course-glimpse">कोर्स झलक</h3>
+                <div class="card-grid">
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span data-translate="on-demand">On-Demand</span>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <span data-translate="duration">6 Months</span>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <span data-translate="community">Community</span>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <span data-translate="projects">Projects</span>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Course Preview" style="width: 100%; border-radius: 12px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Course Generator Section -->
+    <section class="ai-generator" id="ai-generator">
+        <div class="container ai-container">
+            <div class="section-title">
+                <h2 data-translate="ai-generator-title">AI कोर्स जनरेटर</h2>
+                <p data-translate="ai-generator-desc">तुमच्या गरजेनुसार स्वतःचा कोर्स तयार करा</p>
+            </div>
+            <div class="ai-generator-box">
+                <div class="ai-form">
+                    <div class="form-group">
+                        <label for="skill-level" data-translate="skill-level">तुमची कौशल्य पातळी</label>
+                        <select id="skill-level">
+                            <option value="beginner" data-translate="beginner">सुरुवातीची (Beginner)</option>
+                            <option value="intermediate" data-translate="intermediate">मध्यम (Intermediate)</option>
+                            <option value="advanced" data-translate="advanced">प्रगत (Advanced)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="focus-area" data-translate="focus-area">लक्ष्य केंद्रित क्षेत्र</label>
+                        <select id="focus-area">
+                            <option value="frontend" data-translate="frontend">फ्रंटएंड डेव्हलपमेंट</option>
+                            <option value="backend" data-translate="backend">बॅकएंड डेव्हलपमेंट</option>
+                            <option value="fullstack" data-translate="fullstack">पूर्ण स्टॅक डेव्हलपमेंट</option>
+                            <option value="dsa" data-translate="dsa">डेटा स्ट्रक्चर्स आणि अल्गोरिदम</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="time-commitment" data-translate="time-commitment">वेळ निधी</label>
+                        <select id="time-commitment">
+                            <option value="5" data-translate="5-hours">प्रति आठवडा 5 तास</option>
+                            <option value="10" data-translate="10-hours">प्रति आठवडा 10 तास</option>
+                            <option value="15" data-translate="15-hours">प्रति आठवडा 15 तास</option>
+                            <option value="20" data-translate="20-hours">प्रति आठवडा 20+ तास</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal" data-translate="goal">तुमचे लक्ष्य</label>
+                        <select id="goal">
+                            <option value="job" data-translate="get-job">नोकरी मिळवणे</option>
+                            <option value="freelance" data-translate="freelance">फ्रीलांसिंग</option>
+                            <option value="startup" data-translate="startup">स्टार्टअप सुरू करणे</option>
+                            <option value="skills" data-translate="improve-skills">कौशल्य वाढवणे</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="generate-btn" id="generate-course">
+                    <i class="fas fa-magic"></i> <span data-translate="generate-course">कोर्स जनरेट करा</span>
+                </button>
+                <div class="ai-loading" id="ai-loading">
+                    <p data-translate="generating-course">तुमचा कोर्स तयार केला जात आहे...</p>
+                    <div class="loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="ai-result" id="ai-result">
+                    <h3 class="ai-course-title" id="ai-course-title" data-translate="your-custom-course">तुमचा सानुकूल कोर्स</h3>
+                    <div class="ai-course-details">
+                        <div class="ai-detail-item">
+                            <strong data-translate="duration-label">कालावधी</strong>
+                            <p id="ai-duration">12 आठवडे</p>
+                        </div>
+                        <div class="ai-detail-item">
+                            <strong data-translate="estimated-time">अंदाजे वेळ</strong>
+                            <p id="ai-time">60 तास</p>
+                        </div>
+                        <div class="ai-detail-item">
+                            <strong data-translate="projects-label">प्रकल्प</strong>
+                            <p id="ai-projects">3 प्रकल्प</p>
+                        </div>
+                    </div>
+                    <div class="ai-modules">
+                        <h4 data-translate="course-modules">कोर्स मॉड्यूल्स:</h4>
+                        <div id="ai-modules-list">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a class="btn btn-primary" href="#pricing" data-translate="join-this-course">हा कोर्स जॉईन करा</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="why-choose">का निवडाल Padviram?</h2>
+                <p data-translate="industry-relevant">Industry-relevant curriculum with hands-on projects and personalized mentorship</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3 data-translate="video-lectures">350+ व्हिडिओ लेक्चर्स</h3>
+                    <p data-translate="step-by-step">Zero ते Advanced, स्टेप-बाय-स्टेप रोडमॅप.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-translate="doubt-support">लाइव्ह Doubt Support</h3>
+                    <p data-translate="mentor-solving">मेंटर्ससोबत नियमित doubt solving.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 data-translate="access">12 महिने अॅक्सेस</h3>
+                    <p data-translate="anytime-anywhere">कोर्स कधीही, कुठूनही बघा.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 data-translate="industry-projects">Industry Projects</h3>
+                    <p data-translate="capstone-projects">५+ कॅपस्टोन प्रोजेक्ट्स व पोर्टफोलिओ तयार.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 data-translate="job-ready">जॉब-रेडी करिकुलम</h3>
+                    <p data-translate="dsa-dev">DSA + Dev + Interview तयारी.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 data-translate="certificate">Certificate</h3>
+                    <p data-translate="completion-certificate">कंप्लीशन सर्टिफिकेट व LinkedIn Showcase.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum" id="curriculum">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="curriculum-title">Padviram करिकुलम</h2>
+                <p data-translate="curriculum-desc">A comprehensive full-stack development curriculum designed for job readiness</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3><span class="week-badge">Module 1</span> <span data-translate="module1-title">Foundations (HTML, CSS, Git)</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-translate="module1-item1">Semantic HTML, Flex/Grid</li>
+                            <li data-translate="module1-item2">Responsive Design, Tailwind</li>
+                            <li data-translate="module1-item3">Git/GitHub + Best Practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3><span class="week-badge">Module 2</span> <span data-translate="module2-title">JavaScript Mastery</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-translate="module2-item1">ES6+, Async JS</li>
+                            <li data-translate="module2-item2">DOM, APIs, Fetch</li>
+                            <li data-translate="module2-item3">Mini Projects (Todo, Quiz, Gallery)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3><span class="week-badge">Module 3</span> <span data-translate="module3-title">React + Ecosystem</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-translate="module3-item1">Hooks, Context, Router</li>
+                            <li data-translate="module3-item2">Form Handling, Validation</li>
+                            <li data-translate="module3-item3">Production Patterns & Performance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3><span class="week-badge">Module 4</span> <span data-translate="module4-title">Backend + DB</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-translate="module4-item1">Node.js, Express</li>
+                            <li data-translate="module4-item2">MongoDB, Prisma basics</li>
+                            <li data-translate="module4-item3">Auth, JWT, Deployment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3><span class="week-badge">Module 5</span> <span data-translate="module5-title">DSA for Interviews</span></h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-translate="module5-item1">Arrays, Strings, Hashmaps</li>
+                            <li data-translate="module5-item2">Recursion, Trees, Graphs</li>
+                            <li data-translate="module5-item3">Problem Solving Patterns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-translate="pricing-title">Enroll in Delta Batch 3</h2>
+                <p data-translate="pricing-desc">Limited-time launch pricing with lifetime community access</p>
+            </div>
+            <div class="pricing-card">
+                <h3 data-translate="program-name">Padviram Full Stack Program</h3>
+                <div class="price">₹4,999</div>
+                <p data-translate="pricing-note">One-time payment. No hidden charges.</p>
+                <ul class="pricing-features">
+                    <li data-translate="feature1">350+ HD lectures with lifetime access</li>
+                    <li data-translate="feature2">5 capstone projects for your portfolio</li>
+                    <li data-translate="feature3">Weekly live doubt solving sessions</li>
+                    <li data-translate="feature4">Interview prep kit with mock interviews</li>
+                    <li data-translate="feature5">Certificate of completion</li>
+                    <li data-translate="feature6">Placement assistance with referrals</li>
+                </ul>
+                <a class="btn btn-primary" href="#" data-translate="enroll-now">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);" data-translate="payment-options">UPI • Cards • EMI options available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 data-translate="academy-name">Padviram Academy</h3>
+                    <p data-translate="academy-desc">Full‑stack upskilling for ambitious learners. Our mission is to make quality tech education accessible to everyone.</p>
+                    <p data-translate="need-help">Need help? <a href="mailto:hello@padviram.in">hello@padviram.in</a></p>
+                    <div class="social-links">
+                        <a href="https://www.threads.com/@padviram.in" target="_blank"><i class="fab fa-threads"></i></a>
+                        <a href="https://www.instagram.com/padviram.in?igsh=MXQ0OHc4dWNwZG4zaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1DjPmfSzSf/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://t.me/Ramkoli4499" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/9503621862" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 data-translate="explore">Explore</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features" data-translate="nav-features">Features</a></li>
+                        <li><a href="#ai-generator" data-translate="nav-ai-generator">AI Generator</a></li>
+                        <li><a href="#curriculum" data-translate="nav-curriculum">Curriculum</a></li>
+                        <li><a href="#pricing" data-translate="nav-pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 data-translate="legal">Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-translate="terms">Terms of Service</a></li>
+                        <li><a href="#" data-translate="privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-translate="refund">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-translate="copyright">© 2025 Padviram Academy • All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                // Hero Section
+                'hero-title': 'Zero to Job-Ready: <span class="gradient-text">Full Stack + DSA</span>',
+                'hero-description': 'Real projects, interview-focused DSA and mentor support. Become a confident developer in 6 months.',
+                'join-now': 'Join Now',
+                'ai-generator-btn': 'AI Course Generator',
+                'view-curriculum': 'View Curriculum',
+                'rating': '4.8/5 Rating',
+                'learners': '25,000+ learners',
+                'course-glimpse': 'Course Glimpse',
+                'on-demand': 'On-Demand',
+                'duration': '6 Months',
+                'community': 'Community',
+                'projects': 'Projects',
+                
+                // AI Generator Section
+                'ai-generator-title': 'AI Course Generator',
+                'ai-generator-desc': 'Create your own course according to your needs',
+                'skill-level': 'Your Skill Level',
+                'beginner': 'Beginner',
+                'intermediate': 'Intermediate',
+                'advanced': 'Advanced',
+                'focus-area': 'Focus Area',
+                'frontend': 'Frontend Development',
+                'backend': 'Backend Development',
+                'fullstack': 'Full Stack Development',
+                'dsa': 'Data Structures and Algorithms',
+                'time-commitment': 'Time Commitment',
+                '5-hours': '5 hours per week',
+                '10-hours': '10 hours per week',
+                '15-hours': '15 hours per week',
+                '20-hours': '20+ hours per week',
+                'goal': 'Your Goal',
+                'get-job': 'Get a Job',
+                'freelance': 'Freelancing',
+                'startup': 'Start a Startup',
+                'improve-skills': 'Improve Skills',
+                'generate-course': 'Generate Course',
+                'generating-course': 'Generating your course...',
+                'your-custom-course': 'Your Custom Course',
+                'duration-label': 'Duration',
+                'estimated-time': 'Estimated Time',
+                'projects-label': 'Projects',
+                'course-modules': 'Course Modules:',
+                'join-this-course': 'Join This Course',
+                
+                // Features Section
+                'why-choose': 'Why Choose Padviram?',
+                'industry-relevant': 'Industry-relevant curriculum with hands-on projects and personalized mentorship',
+                'video-lectures': '350+ Video Lectures',
+                'step-by-step': 'Zero to Advanced, step-by-step roadmap.',
+                'doubt-support': 'Live Doubt Support',
+                'mentor-solving': 'Regular doubt solving with mentors.',
+                'access': '12 Months Access',
+                'anytime-anywhere': 'Access the course anytime, anywhere.',
+                'industry-projects': 'Industry Projects',
+                'capstone-projects': '5+ Capstone Projects & Portfolio Building.',
+                'job-ready': 'Job-Ready Curriculum',
+                'dsa-dev': 'DSA + Dev + Interview Preparation.',
+                'certificate': 'Certificate',
+                'completion-certificate': 'Completion Certificate & LinkedIn Showcase.',
+                
+                // Curriculum Section
+                'curriculum-title': 'Padviram Curriculum',
+                'curriculum-desc': 'A comprehensive full-stack development curriculum designed for job readiness',
+                'module1-title': 'Foundations (HTML, CSS, Git)',
+                'module1-item1': 'Semantic HTML, Flex/Grid',
+                'module1-item2': 'Responsive Design, Tailwind',
+                'module1-item3': 'Git/GitHub + Best Practices',
+                'module2-title': 'JavaScript Mastery',
+                'module2-item1': 'ES6+, Async JS',
+                'module2-item2': 'DOM, APIs, Fetch',
+                'module2-item3': 'Mini Projects (Todo, Quiz, Gallery)',
+                'module3-title': 'React + Ecosystem',
+                'module3-item1': 'Hooks, Context, Router',
+                'module3-item2': 'Form Handling, Validation',
+                'module3-item3': 'Production Patterns & Performance',
+                'module4-title': 'Backend + DB',
+                'module4-item1': 'Node.js, Express',
+                'module4-item2': 'MongoDB, Prisma basics',
+                'module4-item3': 'Auth, JWT, Deployment',
+                'module5-title': 'DSA for Interviews',
+                'module5-item1': 'Arrays, Strings, Hashmaps',
+                'module5-item2': 'Recursion, Trees, Graphs',
+                'module5-item3': 'Problem Solving Patterns',
+                
+                // Pricing Section
+                'pricing-title': 'Enroll in Delta Batch 3',
+                'pricing-desc': 'Limited-time launch pricing with lifetime community access',
+                'program-name': 'Padviram Full Stack Program',
+                'pricing-note': 'One-time payment. No hidden charges.',
+                'feature1': '350+ HD lectures with lifetime access',
+                'feature2': '5 capstone projects for your portfolio',
+                'feature3': 'Weekly live doubt solving sessions',
+                'feature4': 'Interview prep kit with mock interviews',
+                'feature5': 'Certificate of completion',
+                'feature6': 'Placement assistance with referrals',
+                'enroll-now': 'Enroll Now',
+                'payment-options': 'UPI • Cards • EMI options available',
+                
+                // Footer
+                'academy-name': 'Padviram Academy',
+                'academy-desc': 'Full‑stack upskilling for ambitious learners. Our mission is to make quality tech education accessible to everyone.',
+                'need-help': 'Need help?',
+                'explore': 'Explore',
+                'nav-features': 'Features',
+                'nav-ai-generator': 'AI Generator',
+                'nav-curriculum': 'Curriculum',
+                'nav-pricing': 'Pricing',
+                'legal': 'Legal',
+                'terms': 'Terms of Service',
+                'privacy': 'Privacy Policy',
+                'refund': 'Refund Policy',
+                'copyright': '© 2025 Padviram Academy • All rights reserved'
+            },
+            hi: {
+                // Hero Section
+                'hero-title': 'जीरो से जॉब-रेडी: <span class="gradient-text">Full Stack + DSA</span>',
+                'hero-description': 'रियल प्रोजेक्ट्स, इंटरव्यू-फोकस्ड DSA और मेंटर सपोर्ट। 6 महीने में आत्मविश्वासी डेवलपर बनें।',
+                'join-now': 'अभी जुड़ें',
+                'ai-generator-btn': 'AI कोर्स जनरेटर',
+                'view-curriculum': 'पाठ्यक्रम देखें',
+                'rating': '4.8/5 रेटिंग',
+                'learners': '25,000+ छात्र',
+                'course-glimpse': 'कोर्स झलक',
+                'on-demand': 'ऑन-डिमांड',
+                'duration': '6 महीने',
+                'community': 'कम्युनिटी',
+                'projects': 'प्रोजेक्ट्स',
+                
+                // AI Generator Section
+                'ai-generator-title': 'AI कोर्स जनरेटर',
+                'ai-generator-desc': 'अपनी आवश्यकतानुसार अपना कोर्स बनाएं',
+                'skill-level': 'आपका कौशल स्तर',
+                'beginner': 'शुरुआती (Beginner)',
+                'intermediate': 'मध्यम (Intermediate)',
+                'advanced': 'उन्नत (Advanced)',
+                'focus-area': 'फोकस क्षेत्र',
+                'frontend': 'फ्रंटएंड डेवलपमेंट',
+                'backend': 'बैकएंड डेवलपमेंट',
+                'fullstack': 'फुल स्टैक डेवलपमेंट',
+                'dsa': 'डेटा स्ट्रक्चर और एल्गोरिदम',
+                'time-commitment': 'समय प्रतिबद्धता',
+                '5-hours': 'प्रति सप्ताह 5 घंटे',
+                '10-hours': 'प्रति सप्ताह 10 घंटे',
+                '15-hours': 'प्रति सप्ताह 15 घंटे',
+                '20-hours': 'प्रति सप्ताह 20+ घंटे',
+                'goal': 'आपका लक्ष्य',
+                'get-job': 'नौकरी पाना',
+                'freelance': 'फ्रीलांसिंग',
+                'startup': 'स्टार्टअप शुरू करना',
+                'improve-skills': 'कौशल सुधारना',
+                'generate-course': 'कोर्स जनरेट करें',
+                'generating-course': 'आपका कोर्स जनरेट किया जा रहा है...',
+                'your-custom-course': 'आपका कस्टम कोर्स',
+                'duration-label': 'अवधि',
+                'estimated-time': 'अनुमानित समय',
+                'projects-label': 'प्रोजेक्ट्स',
+                'course-modules': 'कोर्स मॉड्यूल:',
+                'join-this-course': 'इस कोर्स में शामिल हों',
+                
+                // Features Section
+                'why-choose': 'पदवीराम क्यों चुनें?',
+                'industry-relevant': 'हाथों-हाथ प्रोजेक्ट्स और व्यक्तिगत मेंटरशिप के साथ उद्योग-प्रासंगिक पाठ्यक्रम',
+                'video-lectures': '350+ वीडियो लेक्चर',
+                'step-by-step': 'जीरो से एडवांस्ड, स्टेप-बाय-स्टेप रोडमैप।',
+                'doubt-support': 'लाइव डाउट सपोर्ट',
+                'mentor-solving': 'मेंटर्स के साथ नियमित संदेह समाधान।',
+                'access': '12 महीने का एक्सेस',
+                'anytime-anywhere': 'कोर्स को कभी भी, कहीं भी एक्सेस करें।',
+                'industry-projects': 'उद्योग परियोजनाएं',
+                'capstone-projects': '5+ कैपस्टोन प्रोजेक्ट्स और पोर्टफोलियो बिल्डिंग।',
+                'job-ready': 'नौकरी-तैयार पाठ्यक्रम',
+                'dsa-dev': 'DSA + Dev + इंटरव्यू तैयारी।',
+                'certificate': 'प्रमाणपत्र',
+                'completion-certificate': 'पूरा होने का प्रमाणपत्र और लिंक्डइन Showcase।',
+                
+                // Curriculum Section
+                'curriculum-title': 'पदवीराम पाठ्यक्रम',
+                'curriculum-desc': 'नौकरी की तैयारी के लिए डिज़ाइन किया गया एक व्यापक फुल-स्टैक डेवलपमेंट पाठ्यक्रम',
+                'module1-title': 'फाउंडेशन (HTML, CSS, Git)',
+                'module1-item1': 'सेमेंटिक HTML, Flex/Grid',
+                'module1-item2': 'रिस्पॉन्सिव डिज़ाइन, टेलविंड',
+                'module1-item3': 'Git/GitHub + बेस्ट प्रैक्टिसेज',
+                'module2-title': 'JavaScript मास्टरी',
+                'module2-item1': 'ES6+, Async JS',
+                'module2-item2': 'DOM, APIs, Fetch',
+                'module2-item3': 'मिनी प्रोजेक्ट्स (Todo, Quiz, Gallery)',
+                'module3-title': 'React + Ecosystem',
+                'module3-item1': 'Hooks, Context, Router',
+                'module3-item2': 'फॉर्म हैंडलिंग, वैलिडेशन',
+                'module3-item3': 'प्रोडक्शन पैटर्न और परफॉर्मेंस',
+                'module4-title': 'बैकएंड + डेटाबेस',
+                'module4-item1': 'Node.js, Express',
+                'module4-item2': 'MongoDB, Prisma basics',
+                'module4-item3': 'Auth, JWT, Deployment',
+                'module5-title': 'इंटरव्यू के लिए DSA',
+                'module5-item1': 'Arrays, Strings, Hashmaps',
+                'module5-item2': 'Recursion, Trees, Graphs',
+                'module5-item3': 'प्रॉब्लम सॉल्विंग पैटर्न',
+                
+                // Pricing Section
+                'pricing-title': 'डेल्टा बैच 3 में नामांकन करें',
+                'pricing-desc': 'लाइफटाइम कम्युनिटी एक्सेस के साथ सीमित समय की लॉन्च कीमत',
+                'program-name': 'पदवीराम फुल स्टैक प्रोग्राम',
+                'pricing-note': 'एकमुश्त भुगतान। कोई छिपी हुई फीस नहीं।',
+                'feature1': 'लाइफटाइम एक्सेस के साथ 350+ HD लेक्चर्स',
+                'feature2': 'आपके पोर्टफोलियो के लिए 5 कैपस्टोन प्रोजेक्ट्स',
+                'feature3': 'साप्ताहिक लाइव संदेह समाधान सत्र',
+                'feature4': 'मॉक इंटरव्यू के साथ इंटरव्यू प्रिप किट',
+                'feature5': 'पूरा होने का प्रमाणपत्र',
+                'feature6': 'रेफरल के साथ प्लेसमेंट सहायता',
+                'enroll-now': 'अभी नामांकन करें',
+                'payment-options': 'UPI • कार्ड • EMI विकल्प उपलब्ध',
+                
+                // Footer
+                'academy-name': 'पदवीराम अकादमी',
+                'academy-desc': 'महत्वाकांक्षी शिक्षार्थियों के लिए फुल-स्टैक उन्नयन। हमारा मिशन गुणवत्तापूर्ण तकनीकी शिक्षा को सभी के लिए सुलभ बनाना है।',
+                'need-help': 'मदद चाहिए?',
+                'explore': 'अन्वेषण करें',
+                'nav-features': 'विशेषताएं',
+                'nav-ai-generator': 'AI जनरेटर',
+                'nav-curriculum': 'पाठ्यक्रम',
+                'nav-pricing': 'मूल्य निर्धारण',
+                'legal': 'कानूनी',
+                'terms': 'सेवा की शर्तें',
+                'privacy': 'गोपनीयता नीति',
+                'refund': 'धनवापसी नीति',
+                'copyright': '© 2025 पदवीराम अकादमी • सर्वाधिकार सुरक्षित'
+            },
+            mr: {
+                // Hero Section
+                'hero-title': 'झिरो ते Job-Ready: <span class="gradient-text">Full Stack + DSA</span>',
+                'hero-description': 'वास्तविक प्रकल्प, मुलाखत-केंद्रित DSA आणि मार्गदर्शक समर्थन. 6 महिन्यांत आत्मविश्वासू developer व्हा.',
+                'join-now': 'आत्ताच सामील व्हा',
+                'ai-generator-btn': 'AI कोर्स जनरेटर',
+                'view-curriculum': 'अभ्यासक्रम पहा',
+                'rating': '4.8/5 रेटिंग',
+                'learners': '25,000+ शिकणारे',
+                'course-glimpse': 'अभ्यासक्रम झलक',
+                'on-demand': 'ऑन-डिमांड',
+                'duration': '6 महिने',
+                'community': 'समुदाय',
+                'projects': 'प्रकल्प',
+                
+                // AI Generator Section
+                'ai-generator-title': 'AI कोर्स जनरेटर',
+                'ai-generator-desc': 'तुमच्या गरजेनुसार स्वतःचा कोर्स तयार करा',
+                'skill-level': 'तुमची कौशल्य पातळी',
+                'beginner': 'सुरुवातीची (Beginner)',
+                'intermediate': 'मध्यम (Intermediate)',
+                'advanced': 'प्रगत (Advanced)',
+                'focus-area': 'लक्ष्य केंद्रित क्षेत्र',
+                'frontend': 'फ्रंटएंड डेव्हलपमेंट',
+                'backend': 'बॅकएंड डेव्हलपमेंट',
+                'fullstack': 'पूर्ण स्टॅक डेव्हलपमेंट',
+                'dsa': 'डेटा स्ट्रक्चर्स आणि अल्गोरिदम',
+                'time-commitment': 'वेळ निधी',
+                '5-hours': 'प्रति आठवडा 5 तास',
+                '10-hours': 'प्रति आठवडा 10 तास',
+                '15-hours': 'प्रति आठवडा 15 तास',
+                '20-hours': 'प्रति आठवडा 20+ तास',
+                'goal': 'तुमचे लक्ष्य',
+                'get-job': 'नोकरी मिळवणे',
+                'freelance': 'फ्रीलांसिंग',
+                'startup': 'स्टार्टअप सुरू करणे',
+                'improve-skills': 'कौशल्य वाढवणे',
+                'generate-course': 'कोर्स जनरेट करा',
+                'generating-course': 'तुमचा कोर्स तयार केला जात आहे...',
+                'your-custom-course': 'तुमचा सानुकूल कोर्स',
+                'duration-label': 'कालावधी',
+                'estimated-time': 'अंदाजे वेळ',
+                'projects-label': 'प्रकल्प',
+                'course-modules': 'कोर्स मॉड्यूल्स:',
+                'join-this-course': 'हा कोर्स जॉईन करा',
+                
+                // Features Section
+                'why-choose': 'पदवीराम का निवडा?',
+                'industry-relevant': 'हाताच्या प्रकल्पांसह उद्योग-संबंधित अभ्यासक्रम आणि वैयक्तिक मार्गदर्शन',
+                'video-lectures': '350+ व्हिडिओ धडे',
+                'step-by-step': 'झिरो ते प्रगत, चरण-दर-चरण रोडमॅप.',
+                'doubt-support': 'थेट शंका समर्थन',
+                'mentor-solving': 'मार्गदर्शकांसह नियमित शंका निरसन.',
+                'access': '12 महिने प्रवेश',
+                'anytime-anywhere': 'कधीही, कुठेही अभ्यासक्रम प्रवेश करा.',
+                'industry-projects': 'उद्योग प्रकल्प',
+                'capstone-projects': '5+ Capstone प्रकल्प आणि Portfolio बांधकाम.',
+                'job-ready': 'नोकरी-तयार अभ्यासक्रम',
+                'dsa-dev': 'DSA + Dev + मुलाखत तयारी.',
+                'certificate': 'प्रमाणपत्र',
+                'completion-certificate': 'पूर्णता प्रमाणपत्र आणि LinkedIn Showcase.',
+                
+                // Curriculum Section
+                'curriculum-title': 'पदवीराम अभ्यासक्रम',
+                'curriculum-desc': 'नोकरीच्या तयारीसाठी डिझाइन केलेला एक व्यापक फुल-स्टॅक डेव्हलपमेंट अभ्यासक्रम',
+                'module1-title': 'पाया (HTML, CSS, Git)',
+                'module1-item1': 'Semantic HTML, Flex/Grid',
+                'module1-item2': 'Responsive Design, Tailwind',
+                'module1-item3': 'Git/GitHub + Best Practices',
+                'module2-title': 'JavaScript प्रभुत्व',
+                'module2-item1': 'ES6+, Async JS',
+                'module2-item2': 'DOM, APIs, Fetch',
+                'module2-item3': 'Mini Projects (Todo, Quiz, Gallery)',
+                'module3-title': 'React + Ecosystem',
+                'module3-item1': 'Hooks, Context, Router',
+                'module3-item2': 'Form Handling, Validation',
+                'module3-item3': 'Production Patterns & Performance',
+                'module4-title': 'बॅकएंड + DB',
+                'module4-item1': 'Node.js, Express',
+                'module4-item2': 'MongoDB, Prisma basics',
+                'module4-item3': 'Auth, JWT, Deployment',
+                'module5-title': 'मुलाखतीसाठी DSA',
+                'module5-item1': 'Arrays, Strings, Hashmaps',
+                'module5-item2': 'Recursion, Trees, Graphs',
+                'module5-item3': 'Problem Solving Patterns',
+                
+                // Pricing Section
+                'pricing-title': 'डेल्टा बॅच 3 मध्ये नोंदणी करा',
+                'pricing-desc': 'आजीवन समुदाय प्रवेशासह मर्यादित कालावधीतील लाँच किंमत',
+                'program-name': 'पदवीराम फुल स्टॅक प्रोग्राम',
+                'pricing-note': 'एक-वेळ पेमेंट. लपलेले शुल्क नाही.',
+                'feature1': 'आजीवन प्रवेशासह 350+ HD व्याख्याने',
+                'feature2': 'तुमच्या पोर्टफोलिओसाठी 5 कॅपस्टोन प्रकल्प',
+                'feature3': 'साप्ताहिक थेट शंका निरसन सत्र',
+                'feature4': 'मॉक मुलाखतीसह मुलाखत तयारी किट',
+                'feature5': 'पूर्णता प्रमाणपत्र',
+                'feature6': 'रेफरलसह प्लेसमेंट सहाय्य',
+                'enroll-now': 'आत्ताच नोंदणी करा',
+                'payment-options': 'UPI • कार्ड • EMI पर्याय उपलब्ध',
+                
+                // Footer
+                'academy-name': 'पदवीराम अकादमी',
+                'academy-desc': 'महत्वाकांक्षी शिकणाऱ्यांसाठी पूर्ण-स्टॅक कौशल्य वाढ. गुणवत्तापूर्ण तंत्रशिक्षण सर्वांसाठी सुलभ करणे हे आमचे ध्येय आहे.',
+                'need-help': 'मदद हवी?',
+                'explore': 'एक्सप्लोर करा',
+                'nav-features': 'वैशिष्ट्ये',
+                'nav-ai-generator': 'AI जनरेटर',
+                'nav-curriculum': 'अभ्यासक्रम',
+                'nav-pricing': 'किंमत',
+                'legal': 'कायदेशीर',
+                'terms': 'सेवा अटी',
+                'privacy': 'गोपनीयता धोरण',
+                'refund': 'परतावा धोरण',
+                'copyright': '© 2025 पदवीराम अकादमी • सर्व हक्क राखीव'
+            },
+            kn: {
+                // Hero Section
+                'hero-title': 'ಝೀರೋದಿಂದ ಉದ್ಯೋಗ-ಸಿದ್ಧತೆ: <span class="gradient-text">Full Stack + DSA</span>',
+                'hero-description': 'ನಿಜವಾದ ಯೋಜನೆಗಳು, ಸಂದರ್ಶನ-ಕೇಂದ್ರಿತ DSA ಮತ್ತು ಮಾರ್ಗದರ್ಶಕ ಬೆಂಬಲ. 6 ತಿಂಗಳಲ್ಲಿ ಆತ್ಮವಿಶ್ವಾಸದ ಡೆವಲಪರ್ ಆಗಿ.',
+                'join-now': 'ಈಗ ಸೇರಿಕೊಳ್ಳಿ',
+                'ai-generator-btn': 'AI ಕೋರ್ಸ್ ಜನರೇಟರ್',
+                'view-curriculum': 'ಪಠ್ಯಕ್ರಮ ವೀಕ್ಷಿಸಿ',
+                'rating': '4.8/5 ರೇಟಿಂಗ್',
+                'learners': '25,000+ ಕಲಿಯುವವರು',
+                'course-glimpse': 'ಕೋರ್ಸ್ ಝಲಕ',
+                'on-demand': 'ಆನ್-ಡಿಮಾಂಡ್',
+                'duration': '6 ತಿಂಗಳುಗಳು',
+                'community': 'ಸಮುದಾಯ',
+                'projects': 'ಯೋಜನೆಗಳು',
+                
+                // AI Generator Section
+                'ai-generator-title': 'AI ಕೋರ್ಸ್ ಜನರೇಟರ್',
+                'ai-generator-desc': 'ನಿಮ್ಮ ಅಗತ್ಯಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ನಿಮ್ಮ ಸ್ವಂತ ಕೋರ್ಸ್ ರಚಿಸಿ',
+                'skill-level': 'ನಿಮ್ಮ ಕೌಶಲ್ಯ ಮಟ್ಟ',
+                'beginner': 'ಪ್ರಾರಂಭಿಕ (Beginner)',
+                'intermediate': 'ಮಧ್ಯಮ (Intermediate)',
+                'advanced': 'ಸುಧಾರಿತ (Advanced)',
+                'focus-area': 'ಗಮನ ಕೇಂದ್ರೀಕರಿಸುವ ಪ್ರದೇಶ',
+                'frontend': 'ಫ್ರಂಟ್ಎಂಡ್ ಡೆವಲಪ್ಮೆಂಟ್',
+                'backend': 'ಬ್ಯಾಕ್ಎಂಡ್ ಡೆವಲಪ್ಮೆಂಟ್',
+                'fullstack': 'ಪೂರ್ಣ ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪ್ಮೆಂಟ್',
+                'dsa': 'ಡೇಟಾ ಸ್ಟ್ರಕ್ಚರ್ಸ್ ಮತ್ತು ಅಲ್ಗಾರಿದಮ್ಸ್',
+                'time-commitment': 'ಸಮಯ ಬದ್ಧತೆ',
+                '5-hours': 'ವಾರಕ್ಕೆ 5 ಗಂಟೆಗಳು',
+                '10-hours': 'ವಾರಕ್ಕೆ 10 ಗಂಟೆಗಳು',
+                '15-hours': 'ವಾರಕ್ಕೆ 15 ಗಂಟೆಗಳು',
+                '20-hours': 'ವಾರಕ್ಕೆ 20+ ಗಂಟೆಗಳು',
+                'goal': 'ನಿಮ್ಮ ಗುರಿ',
+                'get-job': 'ಉದ್ಯೋಗ ಪಡೆಯಿರಿ',
+                'freelance': 'ಫ್ರೀಲಾನ್ಸಿಂಗ್',
+                'startup': 'ಸ್ಟಾರ್ಟಪ್ ಪ್ರಾರಂಭಿಸಿ',
+                'improve-skills': 'ಕೌಶಲ್ಯಗಳನ್ನು ಸುಧಾರಿಸಿ',
+                'generate-course': 'ಕೋರ್ಸ್ ಜನರೇಟ್ ಮಾಡಿ',
+                'generating-course': 'ನಿಮ್ಮ ಕೋರ್ಸ್ ರಚಿಸಲಾಗುತ್ತಿದೆ...',
+                'your-custom-course': 'ನಿಮ್ಮ ಕಸ್ಟಮ್ ಕೋರ್ಸ್',
+                'duration-label': 'ಅವಧಿ',
+                'estimated-time': 'ಅಂದಾಜು ಸಮಯ',
+                'projects-label': 'ಯೋಜನೆಗಳು',
+                'course-modules': 'ಕೋರ್ಸ್ ಮಾಡ್ಯೂಲ್ಗಳು:',
+                'join-this-course': 'ಈ ಕೋರ್ಸ್ಗೆ ಸೇರಿಕೊಳ್ಳಿ',
+                
+                // Features Section
+                'why-choose': 'ಪದ್ವಿರಾಮ್ ಏಕೆ ಆರಿಸಬೇಕು?',
+                'industry-relevant': 'ಹಸ್ತಾಂತರ ಯೋಜನೆಗಳು ಮತ್ತು ವೈಯಕ್ತಿಕ ಮಾರ್ಗದರ್ಶನದೊಂದಿಗೆ ಉದ್ಯೋಗ-ಸಂಬಂಧಿತ ಪಠ್ಯಕ್ರಮ',
+                'video-lectures': '350+ ವೀಡಿಯೋ ಉಪನ್ಯಾಸಗಳು',
+                'step-by-step': 'ಝೀರೋದಿಂದ ಸುಧಾರಿತ, ಹಂತ-ಹಂತದ ರೋಡ್ಮ್ಯಾಪ್.',
+                'doubt-support': 'ಲೈವ್ ಅನುಮಾನ ಬೆಂಬಲ',
+                'mentor-solving': 'ಮಾರ್ಗದರ್ಶಕರೊಂದಿಗೆ ನಿಯಮಿತ ಅನುಮಾನ ನಿರ್ಧಾರಣ.',
+                'access': '12 ತಿಂಗಳು ಪ್ರವೇಶ',
+                'anytime-anywhere': 'ಯಾವುದೇ ಸಮಯದಲ್ಲಿ, ಎಲ್ಲಿಯಾದರೂ ಕೋರ್ಸ್ ಪ್ರವೇಶಿಸಿ.',
+                'industry-projects': 'ಉದ್ಯೋಗ ಯೋಜನೆಗಳು',
+                'capstone-projects': '5+ ಕ್ಯಾಪ್ಸ್ಟೋನ್ ಯೋಜನೆಗಳು ಮತ್ತು ಪೋರ್ಟ್ಫೋಲಿಯೋ ನಿರ್ಮಾಣ.',
+                'job-ready': 'ಉದ್ಯೋಗ-ಸಿದ್ಧ ಪಠ್ಯक್ರಮ',
+                'dsa-dev': 'DSA + Dev + ಸಂದರ್ಶನ ತಯಾರಿ.',
+                'certificate': 'ಪ್ರಮಾಣಪತ್ರ',
+                'completion-certificate': 'ಪೂರ್ಣಗೊಳ್ಳುವ ಪ್ರमಾಣಪತ್ರ ಮತ್ತು LinkedIn ಪ್ರದರ್ಶನ.',
+                
+                // Curriculum Section
+                'curriculum-title': 'ಪದ್ವಿರಾಮ್ ಪಠ್ಯಕ್ರಮ',
+                'curriculum-desc': 'ಉದ್ಯೋಗ ಸಿದ್ಧತೆಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಸಮಗ್ರ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪ್ಮೆಂಟ್ ಪಠ್ಯಕ್ರಮ',
+                'module1-title': 'ಫೌಂಡೇಶನ್ಸ್ (HTML, CSS, Git)',
+                'module1-item1': 'ಸೆಮ್ಯಾಂಟಿಕ್ HTML, Flex/Grid',
+                'module1-item2': 'ರೆಸ್ಪಾನ್ಸಿವ್ ಡಿಜೈನ್, ಟೈಲ್ವಿಂಡ್',
+                'module1-item3': 'Git/GitHub + Best Practices',
+                'module2-title': 'JavaScript ಮಾಸ್ಟರಿ',
+                'module2-item1': 'ES6+, Async JS',
+                'module2-item2': 'DOM, APIs, Fetch',
+                'module2-item3': 'ಮಿನಿ ಯೋಜನೆಗಳು (Todo, Quiz, Gallery)',
+                'module3-title': 'React + Ecosystem',
+                'module3-item1': 'Hooks, Context, Router',
+                'module3-item2': 'ಫಾರ್ಮ್ ಹ್ಯಾಂಡ್ಲಿಂಗ್, Validation',
+                'module3-item3': 'Production Patterns & Performance',
+                'module4-title': 'Backend + DB',
+                'module4-item1': 'Node.js, Express',
+                'module4-item2': 'MongoDB, Prisma basics',
+                'module4-item3': 'Auth, JWT, Deployment',
+                'module5-title': 'ಸಂದರ್ಶನಗಳಿಗಾಗಿ DSA',
+                'module5-item1': 'Arrays, Strings, Hashmaps',
+                'module5-item2': 'Recursion, Trees, Graphs',
+                'module5-item3': 'Problem Solving Patterns',
+                
+                // Pricing Section
+                'pricing-title': 'ಡೆಲ್ಟಾ ಬ್ಯಾಚ್ 3 ರಲ್ಲಿ ನೋಂದಾಯಿಸಿ',
+                'pricing-desc': 'ಆಜೀವನ ಸಮುದಾಯ ಪ್ರವೇಶದೊಂದಿಗೆ ಸೀಮಿತ-ಸಮಯ ಲಾಂಚ್ ಬೆಲೆ',
+                'program-name': 'ಪದ್ವಿರಾಮ್ ಫುಲ್ ಸ್ಟ್ಯಾಕ್ ಪ್ರೋಗ್ರಾಂ',
+                'pricing-note': 'ಏಕ-ಸಾರಿ ಪಾವತಿ. ಯಾವುದೇ ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ.',
+                'feature1': 'ಆಜೀವನ ಪ್ರವೇಶದೊಂದಿಗೆ 350+ HD ಉಪನ್ಯಾಸಗಳು',
+                'feature2': 'ನಿಮ್ಮ ಪೋರ್ಟ್ಫೋಲಿಯೊಗಾಗಿ 5 ಕ್ಯಾಪ್ಸ್ಟೋನ್ ಯೋಜನೆಗಳು',
+                'feature3': 'ಸಾಪ್ತಾಹಿಕ ಲೈವ್ ಅನುಮಾನ ನಿರ್ಧಾರಣ ಸೆಷನ್ಗಳು',
+                'feature4': 'ಮಾಕ್ ಸಂದರ್ಶನಗಳೊಂದಿಗೆ ಸಂದರ್ಶನ preperation ಕಿಟ್',
+                'feature5': 'ಪೂರ್ಣಗೊಳ್ಳುವ ಪ್ರಮಾಣಪತ್ರ',
+                'feature6': 'ರೆಫರಲ್ಗಳೊಂದಿಗೆ ಪ್ಲೇಸ್ಮೆಂಟ್ ಸಹಾಯ',
+                'enroll-now': 'ಈಗ ನೋಂದಾಯಿಸಿ',
+                'payment-options': 'UPI • ಕಾರ್ಡ್ಗಳು • EMI ಆಯ್ಕೆಗಳು ಲಭ್ಯವಿದೆ',
+                
+                // Footer
+                'academy-name': 'ಪದ್ವಿರಾಮ್ ಅಕಾಡೆಮಿ',
+                'academy-desc': 'ಮಹತ್ವಾಕಾಂಕ್ಷಿ ಕಲಿಯುವವರಿಗೆ ಪೂರ್ಣ-ಸ್ಟಾಕ್ ಕೌಶಲ್ಯ ವರ್ಧನೆ. ಗುಣಮಟ್ಟದ ತಂತ್ರಜ್ಞಾನ ಶಿಕ್ಷಣವನ್ನು ಎಲ್ಲರಿಗೂ ಸುಲಭಗೊಳಿಸುವುದು ನಮ್ಮ ಧ್ಯೇಯ.',
+                'need-help': 'ಸಹಾಯ ಬೇಕೇ?',
+                'explore': 'ಅನ್ವೇಷಿಸಿ',
+                'nav-features': 'ವೈಶಿಷ್ಟ್ಯಗಳು',
+                'nav-ai-generator': 'AI ಜನರೇಟರ್',
+                'nav-curriculum': 'ಪಠ್ಯಕ್ರಮ',
+                'nav-pricing': 'ಬೆಲೆ',
+                'legal': 'ಕಾನೂನು',
+                'terms': 'ಸೇವಾ ನಿಯಮಗಳು',
+                'privacy': 'ಗೌಪ್ಯತಾ ನೀತಿ',
+                'refund': 'ರಿಫಂಡ್ ನೀತಿ',
+                'copyright': '© 2025 ಪದ್ವಿರಾಮ್ ಅकಾಡೆಮಿ • ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಿವೆ'
+            }
+        };
+
+        // Language switcher functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSwitcher = document.getElementById('language-switcher');
+            
+            // Set initial language based on browser preference or default to English
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            languageSwitcher.value = savedLanguage;
+            changeLanguage(savedLanguage);
+            
+            // Add event listener for language change
+            languageSwitcher.addEventListener('change', function() {
+                const selectedLanguage = this.value;
+                localStorage.setItem('preferredLanguage', selectedLanguage);
+                changeLanguage(selectedLanguage);
+            });
+            
+            function changeLanguage(lang) {
+                // Update all elements with data-translate attribute
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+                
+                // Update the language switcher itself
+                languageSwitcher.value = lang;
+            }
+            
+            // Simple accordion functionality
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Initially close all accordion items except the first one
+            document.querySelectorAll('.accordion-content').forEach((content, index) => {
+                if (index !== 0) {
+                    content.style.display = 'none';
+                }
+            });
+
+            // AI Course Generator Functionality
+            document.getElementById('generate-course').addEventListener('click', function() {
+                const skillLevel = document.getElementById('skill-level').value;
+                const focusArea = document.getElementById('focus-area').value;
+                const timeCommitment = document.getElementById('time-commitment').value;
+                const goal = document.getElementById('goal').value;
+                
+                // Show loading animation
+                document.getElementById('ai-loading').classList.add('visible');
+                document.getElementById('ai-result').classList.remove('visible');
+                
+                // Simulate AI processing time
+                setTimeout(() => {
+                    generateCourse(skillLevel, focusArea, timeCommitment, goal);
+                    
+                    // Hide loading and show result
+                    document.getElementById('ai-loading').classList.remove('visible');
+                    document.getElementById('ai-result').classList.add('visible');
+                    
+                    // Scroll to result
+                    document.getElementById('ai-result').scrollIntoView({ behavior: 'smooth' });
+                }, 2000);
+            });
+            
+            function generateCourse(skillLevel, focusArea, timeCommitment, goal) {
+                // Define course parameters based on user input
+                let courseTitle = "";
+                let duration = "";
+                let totalHours = "";
+                let projects = "";
+                let modules = [];
+                
+                // Set course parameters based on user selections
+                switch(focusArea) {
+                    case "frontend":
+                        courseTitle = "फ्रंटएंड वेब डेव्हलपमेंट मास्टरी";
+                        duration = "12";
+                        totalHours = "60";
+                        projects = "3";
+                        modules = [
+                            "HTML5 & CSS3 प्रगत तंत्रे",
+                            "JavaScript आणि ES6+ वैशिष्ट्ये",
+                            "प्रतिसादात्मक वेब डिझाइन",
+                            "React.js किंवा Vue.js फ्रेमवर्क",
+                            "वेब प्रदर्शन ऑप्टिमायझेशन"
+                        ];
+                        break;
+                    case "backend":
+                        courseTitle = "बॅकएंड डेव्हलपमेंट बूटकॅम्प";
+                        duration = "14";
+                        totalHours = "70";
+                        projects = "4";
+                        modules = [
+                            "Node.js आणि Express.js मूलभूत",
+                            "डेटाबेस डिझाइन आणि प्रश्न",
+                            "API डिझाइन आणि RESTful सेवा",
+                            "वापरकर्ता प्रमाणीकरण आणि सुरक्षा",
+                            "सर्व्हरलेस आर्किटेक्चर आणि डेप्लॉयमेंट"
+                        ];
+                        break;
+                    case "fullstack":
+                        courseTitle = "पूर्ण स्टॅक वेब डेव्हलपमेंट";
+                        duration = "16";
+                        totalHours = "80";
+                        projects = "5";
+                        modules = [
+                            "फ्रंटएंड तंत्रज्ञान (HTML, CSS, JS)",
+                            "React.js आणि राज्य व्यवस्थापन",
+                            "Node.js बॅकएंड विकास",
+                            "डेटाबेस एकीकरण (MongoDB, SQL)",
+                            "पूर्ण स्टॅक प्रकल्प आणि डेप्लॉयमेंट"
+                        ];
+                        break;
+                    case "dsa":
+                        courseTitle = "डेटा स्ट्रक्चर्स आणि अल्गोरिदम";
+                        duration = "10";
+                        totalHours = "50";
+                        projects = "2";
+                        modules = [
+                            "अॅरे, स्ट्रिंग्ज आणि लिंक्ड लिस्ट",
+                            "स्टॅक, रांग आणि हॅश टेबल",
+                            "पुनरावृत्ती आणि वृक्ष",
+                            "ग्राफ अल्गोरिदम",
+                            "सॉर्टिंग आणि शोध अल्गोरिदम"
+                        ];
+                        break;
+                }
+                
+                // Adjust based on skill level
+                if (skillLevel === "beginner") {
+                    courseTitle += " (सुरुवातीच्या साठी)";
+                    duration = parseInt(duration) + 2 + "";
+                    totalHours = parseInt(totalHours) + 10 + "";
+                } else if (skillLevel === "advanced") {
+                    courseTitle += " (प्रगत साठी)";
+                    duration = parseInt(duration) - 2 + "";
+                    modules.push("प्रगत विषय आणि इंटरव्ह्यू तयारी");
+                }
+                
+                // Adjust based on time commitment
+                const timeFactor = parseInt(timeCommitment) / 10;
+                duration = Math.round(parseInt(duration) / timeFactor) + "";
+                totalHours = Math.round(parseInt(totalHours) / timeFactor) + "";
+                
+                // Update the course details in the UI
+                document.getElementById('ai-course-title').textContent = courseTitle;
+                document.getElementById('ai-duration').textContent = duration + " आठवडे";
+                document.getElementById('ai-time').textContent = totalHours + " तास";
+                document.getElementById('ai-projects').textContent = projects + " प्रकल्प";
+                
+                // Update modules list
+                const modulesList = document.getElementById('ai-modules-list');
+                modulesList.innerHTML = "";
+                
+                modules.forEach(module => {
+                    const moduleItem = document.createElement('div');
+                    moduleItem.className = 'ai-module-item';
+                    moduleItem.textContent = module;
+                    modulesList.appendChild(moduleItem);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

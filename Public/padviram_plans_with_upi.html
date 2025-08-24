@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padviram Plans</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9fafb;
+    }
+    h1 { text-align: center; margin-bottom: 30px; }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .free { border: 1px solid #e5e7eb; }
+    .monthly { border: 2px solid gold; background: #fffbea; }
+    .lifetime { border: 2px solid green; background: #f0fff0; }
+    .price { font-size: 22px; font-weight: 700; margin: 8px 0; }
+    ul { list-style:none; padding:0; text-align:left; margin:16px 0; }
+    li { margin:8px 0; }
+    .btn { display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; margin-top:8px; }
+    .btn-primary { background:#007bff; color:#fff; }
+    .btn-gold { background:gold; color:#000; font-weight:700; }
+    .btn-green { background:green; color:#fff; font-weight:700; }
+    .qr {
+      margin-top: 12px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      border: 1px solid #e5e7eb;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align:center; }
+    th { background:#f5f5f5; }
+    td:first-child { text-align:left; }
+    .note { font-size: 12px; color:#555; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <h1>💼 Padviram Plans – Free, Monthly ₹499 & Lifetime ₹999</h1>
+
+  <div class="plans">
+    <div class="card free">
+      <h2>🆓 Free Plan</h2>
+      <div class="price">₹0</div>
+      <ul>
+        <li>✅ Job Search (Gov + Private)</li>
+        <li>✅ Resume Upload</li>
+        <li>✅ Daily Job Alerts</li>
+        <li>✅ AI Resume Score (Basic)</li>
+        <li>✅ Basic Chatbot</li>
+      </ul>
+      <a class="btn btn-primary" href="#" onclick="alert('Signup flow here')">Get Started</a>
+    </div>
+
+    <div class="card monthly">
+      <h2>💎 Premium (1 Month)</h2>
+      <div class="price">₹499</div>
+      <ul>
+        <li>🚀 All Free Features</li>
+        <li>🚀 AI Resume Builder</li>
+        <li>🚀 AI Career Guidance</li>
+        <li>🚀 AI Interview Bot</li>
+        <li>🚀 Cover Letter Generator</li>
+        <li>🚀 Premium Job Alerts (SMS/WhatsApp)</li>
+        <li>🚀 Priority HR Support</li>
+        <li>🚀 No Ads Experience</li>
+      </ul>
+      <a class="btn btn-gold" href="upi://pay?pa=padviram@upi&pn=Padviram&cu=INR&am=499">Pay via UPI (₹499)</a>
+      <div class="qr">
+        <div><strong>Scan UPI QR (₹499)</strong></div>
+        <img src="padviram_qr_499.png" alt="UPI QR 499" width="220" height="220"/>
+        <div class="note">UPI ID: padviram@upi • Name: Padviram</div>
+      </div>
+    </div>
+
+    <div class="card lifetime">
+      <h2>👑 Premium Lifetime</h2>
+      <div class="price">₹999</div>
+      <ul>
+        <li>🌐 English / Hindi / Marathi / Kannada</li>
+        <li>🚀 All Premium Features</li>
+        <li>📢 Unlimited Job Alerts</li>
+        <li>🎤 Lifetime AI Interview Training</li>
+        <li>📄 Unlimited Resume & Cover Letters</li>
+        <li>🛠️ Lifetime Updates & HR Support</li>
+        <li>🚫 Ads Free Forever</li>
+      </ul>
+      <a class="btn btn-green" href="upi://pay?pa=padviram@upi&pn=Padviram&cu=INR&am=999">Pay via UPI (₹999)</a>
+      <div class="qr">
+        <div><strong>Scan UPI QR (₹999)</strong></div>
+        <img src="padviram_qr_999.png" alt="UPI QR 999" width="220" height="220"/>
+        <div class="note">UPI ID: padviram@upi • Name: Padviram</div>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Features / सुविधा</th>
+      <th>Free</th>
+      <th>Premium (₹499/Month)</th>
+      <th>Premium Lifetime (₹999)</th>
+    </tr>
+    <tr><td>🔎 Job Search</td><td>✅ Available</td><td>✅ Priority Access</td><td>✅ Priority + Unlimited</td></tr>
+    <tr><td>📄 Resume Builder</td><td>✅ Basic Upload</td><td>✅ AI Resume Builder</td><td>✅ Unlimited Resume & Cover Letters</td></tr>
+    <tr><td>📢 Job Alerts</td><td>✅ Daily Email</td><td>✅ Email + SMS/WhatsApp</td><td>✅ Unlimited Alerts</td></tr>
+    <tr><td>🤖 AI Career & Interview</td><td>❌ Not Included</td><td>✅ 1 Month Access</td><td>✅ Lifetime Access</td></tr>
+    <tr><td>🛠️ Chatbot & Support</td><td>✅ Basic Bot</td><td>✅ Priority Support</td><td>✅ Lifetime HR Support</td></tr>
+    <tr><td>🌐 Language Support</td><td>❌ English Only</td><td>❌ English Only</td><td>✅ EN / HI / MR / KN</td></tr>
+    <tr><td>🚫 Ads Free Experience</td><td>❌ Ads दिसतील</td><td>✅ Ads Free</td><td>✅ Ads Free Forever</td></tr>
+  </table>
+
+</body>
+</html>
