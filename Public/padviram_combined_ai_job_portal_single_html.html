@@ -21,6 +21,9 @@
     .fade-in{animation:fade .6s ease both}
     @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
   </style>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
 </head>
 <body class="bg-gradient-to-b from-indigo-50 via-white to-white text-slate-800">
   <!-- Header -->
@@ -458,5 +461,32 @@
     // Misc
     document.getElementById('year').textContent=new Date().getFullYear()
   </script>
+  <script>
+auth.onAuthStateChanged(user => {
+  if (user) {
+    db.collection("users").doc(user.uid).get().then(doc => {
+      if (doc.exists) {
+        const plan = doc.data().plan;
+        console.log("User plan:", plan);
+
+        if (plan === "free" || !plan) {
+          alert("❌ Free plan: Limited access. Please upgrade for full access.");
+          window.location.href = "padviram_plans_with_upi.html"; 
+        } else {
+          console.log("✅ Access granted for:", plan);
+        }
+
+      } else {
+        alert("No active plan found. Please subscribe.");
+        window.location.href = "padviram_plans_with_upi.html";
+      }
+    });
+  } else {
+    alert("Please login first.");
+    window.location.href = "login.html"; // (तुला login.html बनवायचा आहे)
+  }
+});
+</script>
+
 </body>
 </html>
