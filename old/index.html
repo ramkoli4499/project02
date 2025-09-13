@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Padviram - AI Career Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-color: #1B2A49;
@@ -15,26 +18,26 @@
             --dark-text: #1B2A49;
             --light-text: #f8f9fa;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--light-bg);
             color: var(--dark-text);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header Styles */
         header {
             background-color: var(--primary-color);
@@ -43,9 +46,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -53,7 +56,7 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-        
+
         .logo {
             font-family: 'Montserrat', sans-serif;
             font-size: 3rem;
@@ -63,18 +66,18 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .logo-icon {
             font-size: 1.5rem;
             color: var(--secondary-color);
         }
-        
+
         nav {
             display: flex;
             gap: 1.2rem;
             flex-wrap: wrap;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
@@ -84,11 +87,11 @@
             position: relative;
             font-size: 1.05rem;
         }
-        
+
         nav a:hover {
             color: var(--secondary-color);
         }
-        
+
         nav a::after {
             content: '';
             position: absolute;
@@ -99,17 +102,17 @@
             background-color: var(--secondary-color);
             transition: width 0.3s;
         }
-        
+
         nav a:hover::after {
             width: 100%;
         }
-        
+
         .auth-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
+
         /* Button Styles */
         .btn {
             display: inline-block;
@@ -125,21 +128,21 @@
             text-align: center;
             font-size: 1rem;
         }
-        
+
         .btn:hover {
             background-color: #334a6d;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-secondary {
             background-color: var(--secondary-color);
         }
-        
+
         .btn-secondary:hover {
             background-color: #1da851;
         }
-        
+
         /* Hero Section */
         .hero {
             min-height: 80vh;
@@ -150,13 +153,13 @@
             text-align: center;
             padding: 4rem 0;
         }
-        
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 3.5rem;
@@ -164,7 +167,7 @@
             font-weight: 700;
             line-height: 1.2;
         }
-        
+
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
@@ -172,12 +175,12 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Section Styles */
         .section {
             padding: 5rem 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
@@ -185,7 +188,7 @@
             font-size: 2.5rem;
             color: var(--primary-color);
         }
-        
+
         .section-subtitle {
             text-align: center;
             max-width: 700px;
@@ -193,7 +196,7 @@
             font-size: 1.1rem;
             color: #555;
         }
-        
+
         /* Services Grid */
         .services-grid {
             display: grid;
@@ -201,40 +204,40 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-        
+
         .service-card {
             background: white;
             border-radius: 10px;
             padding: 2rem;
             text-align: center;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             height: 100%;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .service-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-        
+
         .service-card h3 {
             margin-bottom: 1rem;
             min-height: 3.5rem;
         }
-        
+
         .service-card p {
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
-        
+
         /* Language Selector */
         .language-selector {
             padding: 0.5rem;
@@ -242,28 +245,28 @@
             border: 1px solid var(--primary-color);
             background: white;
         }
-        
+
         /* Testimonials */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
+
         .testimonial-card {
             background: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .testimonial-text {
             font-style: italic;
             margin-bottom: 1rem;
             position: relative;
             padding-left: 1.5rem;
         }
-        
+
         .testimonial-text::before {
             content: '"';
             font-size: 3rem;
@@ -273,12 +276,12 @@
             top: -1rem;
             opacity: 0.3;
         }
-        
+
         .testimonial-author {
             font-weight: 600;
             color: var(--primary-color);
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--primary-color);
@@ -286,86 +289,86 @@
             padding: 3rem 0;
             margin-top: 3rem;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        
+
         .footer-section h3 {
             margin-bottom: 1.5rem;
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 0.8rem;
         }
-        
+
         .footer-links a {
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: var(--secondary-color);
         }
-        
+
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-        
+
         .social-links a {
             color: white;
             font-size: 1.5rem;
             transition: all 0.3s;
         }
-        
+
         .social-links a:hover {
             color: var(--secondary-color);
             transform: translateY(-3px);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 2rem;
             margin-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         /* AI Tools Section */
         .ai-tool-section {
             background-color: white;
             padding: 5rem 0;
         }
-        
+
         .ai-tool-card {
             background: #f8f9fa;
             border-radius: 15px;
             padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .ai-tool-header {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
             gap: 1rem;
         }
-        
+
         .ai-tool-icon {
             font-size: 2rem;
             color: var(--secondary-color);
         }
-        
+
         .resume-upload-area {
             border: 2px dashed #ccc;
             padding: 2rem;
@@ -375,46 +378,46 @@
             transition: all 0.3s;
             cursor: pointer;
         }
-        
+
         .resume-upload-area:hover {
             border-color: var(--secondary-color);
         }
-        
+
         .analysis-result {
             background: white;
             padding: 2rem;
             border-radius: 10px;
             margin-top: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             display: none;
         }
-        
+
         .interview-controls {
             text-align: center;
             margin: 2rem 0;
         }
-        
+
         /* Login & Register Forms */
         .auth-container {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             width: 100%;
             max-width: 400px;
             margin: 3rem auto;
         }
-        
+
         .auth-header {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .auth-header h2 {
             color: var(--primary-color);
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         .auth-logo {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
@@ -422,18 +425,18 @@
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: var(--primary-color);
             font-weight: 500;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 0.8rem;
@@ -441,70 +444,109 @@
             border-radius: 5px;
             font-size: 1rem;
         }
-        
+
         .error-message {
             color: var(--accent-color);
             margin-top: 0.5rem;
             font-size: 0.9rem;
         }
-        
+
         .auth-footer {
             text-align: center;
             margin-top: 1.5rem;
         }
-        
+
         .auth-footer a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
         }
-        
+
         /* Hidden Pages */
         .page {
             display: none;
         }
-        
+
         .active-page {
             display: block;
         }
-        
+
         /* Dashboard */
+        .circle-cards-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .circle-card {
+            background: #1B2A49;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .circle-card img {
+            max-width: 60px;
+            margin-bottom: 0.5rem;
+        }
+
+        .circle-card h4 {
+            font-size: 0.9rem;
+            margin: 0;
+            color:white;
+        }
+
+        .circle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
         .dashboard-header {
             margin-bottom: 2rem;
         }
-        
+
         .welcome-message {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
-        
+
         .dashboard-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-        
+
         .stat-card {
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         }
-        
+
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
-        
+
         .stat-label {
             color: #666;
         }
-        
+
         /* Language Switcher */
         .lang-switch {
             position: absolute;
@@ -512,14 +554,14 @@
             right: 1rem;
             z-index: 10;
         }
-        
+
         .lang-switch select {
             padding: 0.3rem 0.5rem;
             border-radius: 5px;
             border: 1px solid #ccc;
             background: white;
         }
-        
+
         #langSelect {
             padding: 8px 15px;
             font-size: 14px;
@@ -528,7 +570,7 @@
             background: #f8f9fa;
             cursor: pointer;
         }
-        
+
         /* User Profile */
         .user-profile {
             display: flex;
@@ -536,7 +578,7 @@
             gap: 10px;
             margin-right: 10px;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -549,12 +591,12 @@
             font-weight: bold;
             font-size: 18px;
         }
-        
+
         .user-name {
             font-size: 1rem;
             font-weight: 500;
         }
-        
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -564,77 +606,78 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 900px) {
             .header-container {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             nav {
                 width: 100%;
                 flex-direction: column;
                 display: none;
                 margin-top: 1rem;
             }
-            
+
             nav.active {
                 display: flex;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
                 position: absolute;
                 right: 20px;
                 top: 20px;
             }
-            
+
             .auth-buttons {
                 width: 100%;
                 justify-content: center;
                 margin-top: 1rem;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero p {
                 font-size: 1.1rem;
             }
-            
+
             .section {
                 padding: 3rem 0;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
         }
-        
+
         @media (max-width: 600px) {
             .btn {
                 width: 100%;
                 margin-bottom: 10px;
             }
-            
-            .hero-content > div {
+
+            .hero-content>div {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .section-title {
                 font-size: 1.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -643,11 +686,11 @@
                 <i class="fas fa-graduation-cap logo-icon"></i>
                 <span id="logoText">Padviram</span>
             </div>
-            
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
+
             <nav id="mainNav">
                 <a href="#home" onclick="showPage('home')" id="homeLink">Home</a>
                 <a href="#services" onclick="showPage('services')" id="servicesLink">Services</a>
@@ -658,15 +701,15 @@
                     <button class="btn btn-secondary" id="loginBtn" onclick="showPage('login')">Login</button>
                     <button class="btn" id="registerBtn" onclick="showPage('register')">Register</button>
                 </div>
-                
+
                 <div class="user-profile" id="userProfile" style="display: none;">
-                    <div class="user-avatar" id="userAvatar">U</div>
+                    <div class="user-avatar" id="userAvatar" onclick="showPage('dashboard')">U</div>
                     <div class="user-name" id="userName">User</div>
                     <button class="btn" id="logoutBtn" style="padding: 0.5rem 1rem;">Logout</button>
                 </div>
             </nav>
-            
-            
+
+
             <select id="langSelect" class="language-selector" onchange="changeLanguage()">
                 <option value="en">English</option>
                 <option value="mr">मराठी (Marathi)</option>
@@ -681,10 +724,13 @@
         <div class="hero">
             <div class="container hero-content">
                 <h1 id="homeTitle">Launch Your Career with AI-Powered Guidance</h1>
-                <p id="homeSubtitle">Your complete solution for resume building, interview preparation, and job placement in four languages</p>
+                <p id="homeSubtitle">Your complete solution for resume building, interview preparation, and job
+                    placement in four languages</p>
                 <div>
-                    <a href="#services" class="btn" onclick="showPage('services')" id="exploreServicesBtn">Explore Services</a>
-                    <a href="#ai-tools" class="btn btn-secondary" onclick="showPage('ai-tools')" id="tryAIToolsBtn">Try AI Tools</a>
+                    <a href="#services" class="btn" onclick="showPage('services')" id="exploreServicesBtn">Explore
+                        Services</a>
+                    <a href="#ai-tools" class="btn btn-secondary" onclick="showPage('ai-tools')" id="tryAIToolsBtn">Try
+                        AI Tools</a>
                 </div>
             </div>
         </div>
@@ -692,27 +738,28 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title" id="howHelpTitle">How Padviram Helps You</h2>
-                <p class="section-subtitle" id="helpSubtitle">Our AI-powered platform provides comprehensive career services tailored to your needs</p>
-                
+                <p class="section-subtitle" id="helpSubtitle">Our AI-powered platform provides comprehensive career
+                    services tailored to your needs</p>
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                         <h3 id="resumeBuildingTitle">Resume Building</h3>
                         <p id="resumeBuildingDesc">AI-powered resume analysis and optimization</p>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-comments"></i></div>
                         <h3 id="interviewCoachingTitle">Interview Coaching</h3>
                         <p id="interviewCoachingDesc">Practice with AI and get real-time feedback</p>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-briefcase"></i></div>
                         <h3 id="jobMatchingTitle">Job Matching</h3>
                         <p id="jobMatchingDesc">Smart AI algorithms match you with perfect jobs</p>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                         <h3 id="skillDevTitle">Skill Development</h3>
@@ -728,49 +775,60 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title" id="servicesTitle">Our Career Services</h2>
-                <p class="section-subtitle" id="servicesSubtitle">Comprehensive AI-powered tools to accelerate your career growth</p>
-                
+                <p class="section-subtitle" id="servicesSubtitle">Comprehensive AI-powered tools to accelerate your
+                    career growth</p>
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                         <h3 id="resumeServiceTitle">Resume Building</h3>
                         <p id="resumeServiceDesc">AI-powered resume analysis and optimization</p>
-                        <button class="btn" style="margin-top: 1rem;" id="learnMore1">Learn More</button>
+                        <!-- <button class="btn" style="margin-top: 1rem;" id="learnMore1">Learn More</button> -->
+                        <a href="./AI-Powered Resume Builder.html" class="btn" style="margin-top: 1rem;">Learn More </a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-comments"></i></div>
                         <h3 id="interviewServiceTitle">Interview Coaching</h3>
                         <p id="interviewServiceDesc">Practice with AI and get real-time feedback</p>
-                        <button class="btn" style="margin-top: 1rem;" id="learnMore2">Learn More</button>
+                        <!-- <button class="btn" style="margin-top: 1rem;" id="learnMore2">Learn More</button> -->
+                        <a href="./Interview Coaching Platform.html" class="btn" style="margin-top: 1rem;">Learn
+                            More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-briefcase"></i></div>
                         <h3 id="jobServiceTitle">Job Matching</h3>
                         <p id="jobServiceDesc">Smart AI algorithms match you with perfect jobs</p>
-                        <button class="btn" style="margin-top: 1rem;" id="learnMore3">Learn More</button>
+                        <!-- <button class="btn" style="margin-top: 1rem;" id="learnMore3">Learn More</button> -->
+                        <a href="./AI-Powered Job Matching Platform.html" class="btn" style="margin-top: 1rem;">Learn
+                            More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                         <h3 id="skillServiceTitle">Skill Development</h3>
                         <p id="skillServiceDesc">Personalized learning paths based on career goals</p>
-                        <button class="btn" style="margin-top: 1rem;" id="learnMore4">Learn More</button>
+                        <!-- <button class="btn" style="margin-top: 1rem;" id="learnMore4">Learn More</button> -->
+                        <a href="./AI-Powered Skill Development Platform.html" class="btn"
+                            style="margin-top: 1rem;">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                         <h3 id="analyticsTitle">Career Analytics</h3>
                         <p id="analyticsDesc">Track your progress and get personalized insights</p>
-                        <button class="btn" style="margin-top: 1rem;" id="learnMore5">Learn More</button>
+                        <!-- <button class="btn" style="margin-top: 1rem;" id="learnMore5">Learn More</button> -->
+                        <a href="./Career Analytics Dashboard.html" class="btn" style="margin-top: 1rem;">Learn More</a>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-network-wired"></i></div>
                         <h3 id="networkTitle">Professional Network</h3>
                         <p id="networkDesc">Connect with industry professionals and mentors</p>
-                        <button class="btn" style="margin-top: 1rem;" id="learnMore6">Learn More</button>
+                        <!-- <button class="btn" style="margin-top: 1rem;" id="learnMore6">Learn More</button> -->
+                        <a href="./Professional Networking Platform.html" class="btn" style="margin-top: 1rem;">Learn
+                            More</a>
                     </div>
                 </div>
             </div>
@@ -782,69 +840,77 @@
         <section class="section ai-tool-section">
             <div class="container">
                 <h2 class="section-title" id="aiToolsTitle">AI Career Tools</h2>
-                <p class="section-subtitle" id="aiToolsSubtitle">Experience our powerful AI-driven career advancement tools</p>
-                
+                <p class="section-subtitle" id="aiToolsSubtitle">Experience our powerful AI-driven career advancement
+                    tools</p>
+
                 <div class="ai-tool-card">
                     <div class="ai-tool-header">
                         <div class="ai-tool-icon"><i class="fas fa-file-alt"></i></div>
                         <h3 id="resumeToolTitle">AI Resume Analyzer</h3>
                     </div>
-                    <p id="resumeToolDesc">Upload your resume and get instant AI-powered feedback to improve your chances of getting hired</p>
-                    
+                    <p id="resumeToolDesc">Upload your resume and get instant AI-powered feedback to improve your
+                        chances of getting hired</p>
+
                     <div class="resume-upload-area" id="dropZone">
-                        <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                        <i class="fas fa-cloud-upload-alt"
+                            style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
                         <p id="uploadText">Drag & drop your resume here or click to browse</p>
                         <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display: none;">
                         <button class="btn" style="margin-top: 1rem;" id="selectFileBtn">Select File</button>
                     </div>
-                    
+
                     <div class="analysis-result" id="resumeAnalysisResult">
                         <h4 id="analysisResultTitle">Analysis Results</h4>
                         <div id="resumeAnalysisContent"></div>
                     </div>
                 </div>
-                
+
                 <div class="ai-tool-card">
                     <div class="ai-tool-header">
                         <div class="ai-tool-icon"><i class="fas fa-video"></i></div>
                         <h3 id="interviewToolTitle">AI Interview Coach</h3>
                     </div>
-                    <p id="interviewToolDesc">Practice your interview skills with our AI system that analyzes your responses</p>
-                    
-                    <div style="width: 100%; max-width: 600px; margin: 1rem auto; background: #333; border-radius: 10px; aspect-ratio: 16/9;" id="videoPreview"></div>
-                    
+                    <p id="interviewToolDesc">Practice your interview skills with our AI system that analyzes your
+                        responses</p>
+
+                    <div style="width: 100%; max-width: 600px; margin: 1rem auto; background: #333; border-radius: 10px; aspect-ratio: 16/9;"
+                        id="videoPreview"></div>
+
                     <div class="interview-controls">
                         <button class="btn" id="startInterviewBtn">Start Practice Interview</button>
-                        <button class="btn" id="endInterviewBtn" style="display: none; background-color: var(--accent-color);">End Interview</button>
+                        <button class="btn" id="endInterviewBtn"
+                            style="display: none; background-color: var(--accent-color);">End Interview</button>
                     </div>
-                    
+
                     <div class="analysis-result" id="interviewFeedback" style="display: none;">
                         <h4 id="feedbackTitle">AI Feedback</h4>
                         <div id="feedbackContent"></div>
                     </div>
                 </div>
-                
+
                 <div class="ai-tool-card">
                     <div class="ai-tool-header">
                         <div class="ai-tool-icon"><i class="fas fa-briefcase"></i></div>
                         <h3 id="jobToolTitle">AI Job Matcher</h3>
                     </div>
                     <p id="jobToolDesc">Our AI will match you with the perfect jobs based on your profile</p>
-                    
+
                     <div style="margin: 1rem 0;">
                         <label for="jobSkills" id="skillsLabel">Your Skills (comma separated):</label>
-                        <input type="text" id="jobSkills" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; margin: 0.5rem 0;">
-                        
+                        <input type="text" id="jobSkills"
+                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; margin: 0.5rem 0;">
+
                         <label for="jobLocation" id="locationLabel">Preferred Location:</label>
-                        <select id="jobLocation" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; margin: 0.5rem 0;">
+                        <select id="jobLocation"
+                            style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; margin: 0.5rem 0;">
                             <option value="any" id="anyLocation">Any Location</option>
                             <option value="remote" id="remoteLocation">Remote</option>
                             <option value="hybrid" id="hybridLocation">Hybrid</option>
                         </select>
                     </div>
-                    
+
                     <button class="btn" id="findJobsBtn">Find Matching Jobs</button>
-                    
+
                     <div class="analysis-result" id="jobResults" style="display: none; margin-top: 2rem;">
                         <h4 id="jobResultsTitle">AI-Curated Job Matches</h4>
                         <div id="matchedJobsList"></div>
@@ -859,21 +925,28 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title" id="testimonialsTitle">Success Stories</h2>
-                <p class="section-subtitle" id="testimonialsSubtitle">Hear from professionals who transformed their careers with Padviram</p>
-                
+                <p class="section-subtitle" id="testimonialsSubtitle">Hear from professionals who transformed their
+                    careers with Padviram</p>
+
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
-                        <div class="testimonial-text" id="testimonial1">Padviram's AI resume analyzer helped me identify weaknesses in my resume I never noticed. After implementing the suggestions, I got 3 interview calls in one week!</div>
+                        <div class="testimonial-text" id="testimonial1">Padviram's AI resume analyzer helped me identify
+                            weaknesses in my resume I never noticed. After implementing the suggestions, I got 3
+                            interview calls in one week!</div>
                         <div class="testimonial-author" id="author1">- Ramesh Patil, Software Engineer</div>
                     </div>
-                    
+
                     <div class="testimonial-card">
-                        <div class="testimonial-text" id="testimonial2">The interview simulator was incredibly helpful. The AI feedback on my body language and tone helped me improve significantly before my actual interviews.</div>
+                        <div class="testimonial-text" id="testimonial2">The interview simulator was incredibly helpful.
+                            The AI feedback on my body language and tone helped me improve significantly before my
+                            actual interviews.</div>
                         <div class="testimonial-author" id="author2">- Priya Sharma, Marketing Executive</div>
                     </div>
-                    
+
                     <div class="testimonial-card">
-                        <div class="testimonial-text" id="testimonial3">I was confused about my career path. The AI career advisor analyzed my skills and suggested options I hadn't considered. Now I'm in my dream job!</div>
+                        <div class="testimonial-text" id="testimonial3">I was confused about my career path. The AI
+                            career advisor analyzed my skills and suggested options I hadn't considered. Now I'm in my
+                            dream job!</div>
                         <div class="testimonial-author" id="author3">- Arjun Kumar, Data Analyst</div>
                     </div>
                 </div>
@@ -886,8 +959,9 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title" id="contactTitle">Contact Us</h2>
-                <p class="section-subtitle" id="contactSubtitle">Have questions? Get in touch with our career advisors</p>
-                
+                <p class="section-subtitle" id="contactSubtitle">Have questions? Get in touch with our career advisors
+                </p>
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-envelope"></i></div>
@@ -895,14 +969,14 @@
                         <p id="emailAddress">support@padviram.com</p>
                         <button class="btn" style="margin-top: 1rem;" id="emailBtn">Send Email</button>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-phone"></i></div>
                         <h3 id="phoneTitle">Phone Support</h3>
                         <p id="phoneNumber">+91 9503621862</p>
                         <button class="btn" style="margin-top: 1rem;" id="callBtn">Call Now</button>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <h3 id="visitTitle">Visit Us</h3>
@@ -922,24 +996,25 @@
                     <div class="auth-logo" id="loginLogo">Padviram</div>
                     <h2 id="loginTitle">Login to Your Account</h2>
                 </div>
-                
+
                 <form id="loginForm">
                     <div class="form-group">
                         <label for="email" id="emailLabel">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="password" id="passwordLabel">Password</label>
                         <input type="password" id="password" name="password" required>
                         <div id="loginError" class="error-message"></div>
                     </div>
-                    
+
                     <button type="submit" class="btn" id="loginSubmitBtn">Login</button>
                 </form>
-                
+
                 <div class="auth-footer">
-                    <p id="noAccountText">Don't have an account? <a href="#" onclick="showPage('register')" id="registerLink">Register here</a></p>
+                    <p id="noAccountText">Don't have an account? <a href="#" onclick="showPage('register')"
+                            id="registerLink">Register here</a></p>
                 </div>
             </div>
         </div>
@@ -953,34 +1028,35 @@
                     <div class="auth-logo" id="registerLogo">Padviram</div>
                     <h2 id="registerTitle">Create Your Account</h2>
                 </div>
-                
+
                 <form id="registerForm">
                     <div class="form-group">
                         <label for="name" id="nameLabel">Full Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email" id="regEmailLabel">Email</label>
                         <input type="email" id="regEmail" name="email" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="password" id="regPasswordLabel">Password</label>
                         <input type="password" id="regPassword" name="password" required minlength="6">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="confirmPassword" id="confirmPasswordLabel">Confirm Password</label>
                         <input type="password" id="confirmPassword" name="confirmPassword" required>
                         <div id="passwordError" class="error-message"></div>
                     </div>
-                    
+
                     <button type="submit" class="btn" id="registerSubmitBtn">Register</button>
                 </form>
-                
+
                 <div class="auth-footer">
-                    <p id="haveAccountText">Already have an account? <a href="#" onclick="showPage('login')" id="loginLink">Login here</a></p>
+                    <p id="haveAccountText">Already have an account? <a href="#" onclick="showPage('login')"
+                            id="loginLink">Login here</a></p>
                 </div>
             </div>
         </div>
@@ -990,35 +1066,57 @@
     <section id="dashboard" class="page">
         <section class="section">
             <div class="container">
+                <!-- 🔹 New Top Circle Cards Section -->
+                <div class="circle-cards-grid">
+                    <a class="circle-card" href="./Academy1.html">
+                        <!-- <img src="logo1.png" alt="Academy Logo" /> -->
+                        <h4>Padviram Academy</h4>
+                    </a>
+
+                    <a class="circle-card" href="./AI Job Portal.html">
+                        <!-- <img src="logo2.png" alt="Jobs Logo" /> -->
+                        <h4>Padviram Jobs Portal</h4>
+                    </a>
+                    <a class="circle-card" href="./Career guide pro AI updates.html">
+                        <!-- <img src="logo3.png" alt="HR Logo" /> -->
+                        <h4>Padviram HR</h4>
+                    </a>
+                    <a class="circle-card" href="./employee_form_with_chatbot.html">
+                        <!-- <img src="logo4.png" alt="Benefits Logo" /> -->
+                        <h4>Personal Details</h4>
+                    </a>
+                </div>
+                <!-- 🔹 End Circle Cards Section -->
+
                 <div class="dashboard-header">
                     <h2 class="section-title" id="dashboardTitle">Dashboard</h2>
                     <div class="welcome-message" id="welcomeMessage">Welcome back, Priya!</div>
                 </div>
-                
+
                 <div class="dashboard-stats">
                     <div class="stat-card">
                         <div class="stat-number" id="profileStat">85%</div>
                         <div class="stat-label" id="profileLabel">Profile Completion</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-number" id="appliedStat">12</div>
                         <div class="stat-label" id="appliedLabel">Jobs Applied</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-number" id="interviewsStat">5</div>
                         <div class="stat-label" id="interviewsLabel">Interviews Scheduled</div>
                     </div>
-                    
+
                     <div class="stat-card">
                         <div class="stat-number" id="offersStat">3</div>
                         <div class="stat-label" id="offersLabel">Job Offers</div>
                     </div>
                 </div>
-                
+
                 <h3 class="section-title" style="font-size: 1.8rem;" id="recommendedTitle">Recommended Actions</h3>
-                
+
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-file-alt"></i></div>
@@ -1026,14 +1124,14 @@
                         <p id="resumeStatus">Your resume hasn't been updated in 30 days</p>
                         <button class="btn" style="margin-top: 1rem;" id="updateResumeBtn">Update Now</button>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-comments"></i></div>
                         <h3 id="practiceTitle">Practice Interview</h3>
                         <p id="interviewStatus">Practice for your upcoming interview tomorrow</p>
                         <button class="btn" style="margin-top: 1rem;" id="practiceBtn">Start Practice</button>
                     </div>
-                    
+
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-briefcase"></i></div>
                         <h3 id="jobRecTitle">Job Recommendations</h3>
@@ -1051,15 +1149,20 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3 id="footerTitle">Padviram</h3>
-                    <p id="footerDesc">AI-powered career services platform helping graduates launch successful careers through personalized guidance and tools.</p>
+                    <p id="footerDesc">AI-powered career services platform helping graduates launch successful careers
+                        through personalized guidance and tools.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/padviram.in" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://whatsapp.com/channel/0029VbAsYEcCBtxCoHfgYk3Y" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/share/1A9s1kR1GR/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/company/padviram-emplosee-services/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/padviram.in" target="_blank" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbAsYEcCBtxCoHfgYk3Y" target="_blank"
+                            aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1A9s1kR1GR/" target="_blank" aria-label="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/padviram-emplosee-services/" target="_blank"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3 id="quickLinksTitle">Quick Links</h3>
                     <ul class="footer-links">
@@ -1070,7 +1173,7 @@
                         <li><a href="#" onclick="showPage('contact')" id="footerContact">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3 id="servicesFooterTitle">Services</h3>
                     <ul class="footer-links">
@@ -1081,17 +1184,18 @@
                         <li><a href="#" id="footerCounseling">Career Counseling</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3 id="contactFooterTitle">Contact Us</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-envelope"></i> <span id="footerEmail">support@padviram.com</span></li>
                         <li><i class="fas fa-phone"></i> <span id="footerPhone">+91 9503621862</span></li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Pune, Maharashtra, India</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Pune, Maharashtra,
+                                India</span></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 <p id="copyrightText">© 2025 Padviram Employee Services | Privacy Policy | Terms of Use</p>
             </div>
@@ -1105,29 +1209,29 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active-page');
             });
-            
+
             // Show requested page
             document.getElementById(pageId).classList.add('active-page');
-            
+
             // Scroll to top
             window.scrollTo(0, 0);
-            
+
             // Close mobile menu if open
             document.getElementById('mainNav').classList.remove('active');
         }
-        
+
         // Set default page
         showPage('home');
-        
+
         // Mobile Menu Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
             const nav = document.getElementById('mainNav');
             nav.classList.toggle('active');
         });
-        
+
         // User Management
         let currentUser = null;
-        
+
         // Check if user is logged in
         function checkLoginStatus() {
             const userData = localStorage.getItem('padviram_user');
@@ -1138,35 +1242,35 @@
                 updateUIForLoggedOutUser();
             }
         }
-        
+
         // Update UI for logged in user
         function updateUIForLoggedInUser() {
             // Show user profile and hide auth buttons
             document.getElementById('userProfile').style.display = 'flex';
             document.getElementById('authButtons').style.display = 'none';
-            
+
             // Update user info
             document.getElementById('userAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
             document.getElementById('userName').textContent = currentUser.name.split(' ')[0];
-            
+
             // Update dashboard welcome message
             document.getElementById('welcomeMessage').textContent = `Welcome back, ${currentUser.name.split(' ')[0]}!`;
         }
-        
+
         // Update UI for logged out user
         function updateUIForLoggedOutUser() {
             // Hide user profile and show auth buttons
             document.getElementById('userProfile').style.display = 'none';
             document.getElementById('authButtons').style.display = 'flex';
         }
-        
+
         // Login Form Handling
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorElement = document.getElementById('loginError');
-            
+
             // Simple validation
             if (email && password) {
                 // Simulate login success
@@ -1175,29 +1279,29 @@
                     email: email,
                     language: document.getElementById('langSelect').value
                 };
-                
+
                 // Save to localStorage
                 localStorage.setItem('padviram_user', JSON.stringify(currentUser));
-                
+
                 // Update UI
                 updateUIForLoggedInUser();
-                
+
                 // Show dashboard
                 showPage('dashboard');
             } else {
                 errorElement.textContent = 'Please enter both email and password';
             }
         });
-        
+
         // Register Form Handling
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('regEmail').value;
             const password = document.getElementById('regPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const errorElement = document.getElementById('passwordError');
-            
+
             // Validate passwords match
             if (password !== confirmPassword) {
                 errorElement.textContent = 'Passwords do not match';
@@ -1205,37 +1309,37 @@
             } else {
                 errorElement.textContent = '';
             }
-            
+
             // Create user object
             currentUser = {
                 name: name,
                 email: email,
                 language: document.getElementById('langSelect').value
             };
-            
+
             // Save to localStorage
             localStorage.setItem('padviram_user', JSON.stringify(currentUser));
-            
+
             // Update UI
             updateUIForLoggedInUser();
-            
+
             // Show dashboard
             showPage('dashboard');
         });
-        
+
         // Logout functionality
-        document.getElementById('logoutBtn').addEventListener('click', function() {
+        document.getElementById('logoutBtn').addEventListener('click', function () {
             // Clear user data
             localStorage.removeItem('padviram_user');
             currentUser = null;
-            
+
             // Update UI
             updateUIForLoggedOutUser();
-            
+
             // Show home page
             showPage('home');
         });
-        
+
         // Language Translation System
         const translations = {
             en: {
@@ -1249,7 +1353,7 @@
                 "loginBtn": "Login",
                 "registerBtn": "Register",
                 "logout": "Logout",
-                
+
                 // Home Page
                 "homeTitle": "Launch Your Career with AI-Powered Guidance",
                 "homeSubtitle": "Your complete solution for resume building, interview preparation, and job placement in four languages",
@@ -1265,7 +1369,7 @@
                 "jobMatchingDesc": "Smart AI algorithms match you with perfect jobs",
                 "skillDevTitle": "Skill Development",
                 "skillDevDesc": "Personalized learning paths based on career goals",
-                
+
                 // Services Page
                 "servicesTitle": "Our Career Services",
                 "servicesSubtitle": "Comprehensive AI-powered tools to accelerate your career growth",
@@ -1287,7 +1391,7 @@
                 "learnMore4": "Learn More",
                 "learnMore5": "Learn More",
                 "learnMore6": "Learn More",
-                
+
                 // AI Tools Page
                 "aiToolsTitle": "AI Career Tools",
                 "aiToolsSubtitle": "Experience our powerful AI-driven career advancement tools",
@@ -1310,7 +1414,7 @@
                 "hybridLocation": "Hybrid",
                 "findJobsBtn": "Find Matching Jobs",
                 "jobResultsTitle": "AI-Curated Job Matches",
-                
+
                 // Testimonials
                 "testimonialsTitle": "Success Stories",
                 "testimonialsSubtitle": "Hear from professionals who transformed their careers with Padviram",
@@ -1320,7 +1424,7 @@
                 "author2": "- Priya Sharma, Marketing Executive",
                 "testimonial3": "I was confused about my career path. The AI career advisor analyzed my skills and suggested options I hadn't considered. Now I'm in my dream job!",
                 "author3": "- Arjun Kumar, Data Analyst",
-                
+
                 // Contact Page
                 "contactTitle": "Contact Us",
                 "contactSubtitle": "Have questions? Get in touch with our career advisors",
@@ -1333,7 +1437,7 @@
                 "visitTitle": "Visit Us",
                 "address": "Pune, Maharashtra, India",
                 "directionsBtn": "Get Directions",
-                
+
                 // Login Page
                 "loginLogo": "Padviram",
                 "loginTitle": "Login to Your Account",
@@ -1342,7 +1446,7 @@
                 "loginSubmitBtn": "Login",
                 "noAccountText": "Don't have an account?",
                 "registerLink": "Register here",
-                
+
                 // Register Page
                 "registerLogo": "Padviram",
                 "registerTitle": "Create Your Account",
@@ -1353,7 +1457,7 @@
                 "registerSubmitBtn": "Register",
                 "haveAccountText": "Already have an account?",
                 "loginLink": "Login here",
-                
+
                 // Dashboard
                 "dashboardTitle": "Dashboard",
                 "profileLabel": "Profile Completion",
@@ -1370,7 +1474,7 @@
                 "jobRecTitle": "Job Recommendations",
                 "jobsStatus": "5 new jobs match your profile",
                 "viewJobsBtn": "View Jobs",
-                
+
                 // Footer
                 "footerTitle": "Padviram",
                 "footerDesc": "AI-powered career services platform helping graduates launch successful careers through personalized guidance and tools",
@@ -1826,10 +1930,10 @@
         }
 
         // Initialize page with translations
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateTexts();
             checkLoginStatus();
-            
+
             // Load saved user data
             const userData = localStorage.getItem('padviram_user');
             if (userData) {
@@ -1841,9 +1945,9 @@
                 }
             }
         });
-        
+
         // Resume Analyzer Demo
-        document.querySelector('.resume-upload-area').addEventListener('click', function() {
+        document.querySelector('.resume-upload-area').addEventListener('click', function () {
             document.getElementById('resumeAnalysisResult').style.display = 'block';
             document.getElementById('resumeAnalysisContent').innerHTML = `
                 <h4 style="color: var(--secondary-color); margin-top: 0;">Resume Score: 84/100</h4>
@@ -1868,12 +1972,12 @@
                 </div>
             `;
         });
-        
+
         // Interview Coach Demo
-        document.getElementById('startInterviewBtn').addEventListener('click', function() {
+        document.getElementById('startInterviewBtn').addEventListener('click', function () {
             this.style.display = 'none';
             document.getElementById('endInterviewBtn').style.display = 'inline-block';
-            
+
             setTimeout(() => {
                 document.getElementById('interviewFeedback').style.display = 'block';
                 document.getElementById('feedbackContent').innerHTML = `
@@ -1902,18 +2006,18 @@
                 `;
             }, 3000);
         });
-        
-        document.getElementById('endInterviewBtn').addEventListener('click', function() {
+
+        document.getElementById('endInterviewBtn').addEventListener('click', function () {
             this.style.display = 'none';
             document.getElementById('startInterviewBtn').style.display = 'inline-block';
             document.getElementById('interviewFeedback').style.display = 'none';
         });
-        
+
         // Job Matcher Demo
-        document.getElementById('findJobsBtn').addEventListener('click', function() {
+        document.getElementById('findJobsBtn').addEventListener('click', function () {
             const skills = document.getElementById('jobSkills').value || 'Software Development, Project Management';
             const location = document.getElementById('jobLocation').value;
-            
+
             document.getElementById('jobResults').style.display = 'block';
             document.getElementById('matchedJobsList').innerHTML = `
                 <div style="background: white; padding: 1rem; border-radius: 8px; margin: 1rem 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
@@ -1934,4 +2038,5 @@
         });
     </script>
 </body>
+
 </html>

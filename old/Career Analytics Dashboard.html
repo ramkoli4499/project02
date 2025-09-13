@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Analytics | Track Your Progress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e6e9f0 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            color: #6a11cb;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2575fc;
+        }
+        
+        h3 {
+            color: #2575fc;
+            margin: 15px 0 10px;
+        }
+        
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #6a11cb;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1s ease;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 250px;
+            margin: 20px 0;
+        }
+        
+        .insight {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f0f4ff;
+            border-radius: 10px;
+            border-left: 4px solid #2575fc;
+        }
+        
+        .insight i {
+            color: #2575fc;
+            margin-right: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 5px;
+        }
+        
+        .badge-primary {
+            background: #e0e7ff;
+            color: #6a11cb;
+        }
+        
+        .badge-success {
+            background: #e6f7ee;
+            color: #0c9d58;
+        }
+        
+        .badge-warning {
+            background: #fff4e6;
+            color: #ff8c00;
+        }
+        
+        .padviram-link {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .padviram-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 20px;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .padviram-link a:hover {
+            background: #fff;
+            color: #6a11cb;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Career Analytics Dashboard</h1>
+            <p class="subtitle">Track your progress and get personalized insights to advance your career</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h2>Overall Progress</h2>
+                <div class="stat">
+                    <span>Career Readiness</span>
+                    <span class="stat-value">78%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 78%"></div>
+                </div>
+                
+                <div class="stat">
+                    <span>Skills Mastery</span>
+                    <span class="stat-value">65%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 65%"></div>
+                </div>
+                
+                <div class="stat">
+                    <span>Job Match Score</span>
+                    <span class="stat-value">82%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 82%"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Skills Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                <button class="btn"><i class="fas fa-chart-line"></i> View Detailed Report</button>
+            </div>
+            
+            <div class="card">
+                <h2>Personalized Insights</h2>
+                <div class="insight">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Your JavaScript skills are in high demand!</strong>
+                    <p>Based on your profile and current market trends, JavaScript developers are seeing a 20% increase in job opportunities.</p>
+                </div>
+                
+                <div class="insight">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <strong>Consider learning React.js</strong>
+                    <p>Adding React.js to your skillset could increase your job matches by 35% based on your current profile.</p>
+                </div>
+                
+                <div class="insight">
+                    <i class="fas fa-trophy"></i>
+                    <strong>You're in the top 30% for problem-solving skills</strong>
+                    <p>Your performance on coding challenges places you above 70% of other developers in your experience range.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Weekly Activity</h2>
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+                <div class="stat">
+                    <span>Learning Hours:</span>
+                    <span class="stat-value">12.5h</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Job Market Trends</h2>
+                <h3>In-Demand Skills</h3>
+                <div>
+                    <span class="badge badge-primary">React.js</span>
+                    <span class="badge badge-primary">Node.js</span>
+                    <span class="badge badge-primary">Python</span>
+                    <span class="badge badge-primary">AWS</span>
+                    <span class="badge badge-primary">UI/UX Design</span>
+                </div>
+                
+                <h3>Your Skill Gaps</h3>
+                <div>
+                    <span class="badge badge-warning">Cloud Computing</span>
+                    <span class="badge badge-warning">DevOps</span>
+                    <span class="badge badge-warning">Machine Learning</span>
+                </div>
+                
+                <h3>Your Strengths</h3>
+                <div>
+                    <span class="badge badge-success">JavaScript</span>
+                    <span class="badge badge-success">Problem Solving</span>
+                    <span class="badge badge-success">Communication</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Career Goals Progress</h2>
+                <div class="stat">
+                    <span>Full-Stack Developer Readiness</span>
+                    <span class="stat-value">68%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 68%"></div>
+                </div>
+                
+                <div class="stat">
+                    <span>Senior Developer Path</span>
+                    <span class="stat-value">45%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 45%"></div>
+                </div>
+                
+                <div class="stat">
+                    <span>Technical Leadership</span>
+                    <span class="stat-value">32%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 32%"></div>
+                </div>
+                
+                <button class="btn" style="width: 100%; margin-top: 20px;"><i class="fas fa-target"></i> Update Goals</button>
+            </div>
+        </div>
+        
+        <div class="padviram-link">
+            <p>This career analytics platform is powered by advanced AI from</p>
+            <a href="https://padviram.in" target="_blank">Padviram.in</a>
+        </div>
+        
+        <footer>
+            <p>© 2023 Career Analytics Dashboard | Powered by Padviram.in Technology</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Skills Chart
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            const skillsChart = new Chart(skillsCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['JavaScript', 'React', 'Node.js', 'HTML/CSS', 'Python', 'SQL'],
+                    datasets: [{
+                        label: 'Your Skills',
+                        data: [85, 70, 65, 90, 40, 60],
+                        backgroundColor: 'rgba(106, 17, 203, 0.2)',
+                        borderColor: 'rgba(106, 17, 203, 1)',
+                        pointBackgroundColor: 'rgba(106, 17, 203, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(106, 17, 203, 1)'
+                    }, {
+                        label: 'Market Demand',
+                        data: [90, 85, 75, 70, 80, 65],
+                        backgroundColor: 'rgba(37, 117, 252, 0.2)',
+                        borderColor: 'rgba(37, 117, 252, 1)',
+                        pointBackgroundColor: 'rgba(37, 117, 252, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(37, 117, 252, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+            
+            // Activity Chart
+            const activityCtx = document.getElementById('activityChart').getContext('2d');
+            const activityChart = new Chart(activityCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Learning Hours',
+                        data: [2.5, 1.8, 2.2, 1.5, 2.0, 1.0, 1.5],
+                        backgroundColor: 'rgba(106, 17, 203, 0.7)',
+                        borderColor: 'rgba(106, 17, 203, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 3,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + 'h';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Simulate progress animation
+            const progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+            
+            // Button functionality
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const buttonText = this.textContent;
+                    alert(`Feature "${buttonText}" would open in a full implementation.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

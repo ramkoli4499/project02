@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Coaching | Padviram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a1c4fd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #a1c4fd;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00b4db;
+        }
+        
+        h3 {
+            color: #00b4db;
+            margin: 15px 0 10px;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 180, 219, 0.2);
+            border-radius: 10px;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #00b4db;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .interview-container {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .webcam-placeholder {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .webcam-placeholder i {
+            font-size: 4rem;
+            color: #00b4db;
+            margin-bottom: 20px;
+        }
+        
+        .feedback-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .feedback-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease;
+        }
+        
+        .question-list {
+            list-style-type: none;
+        }
+        
+        .question-list li {
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .question-list li:hover {
+            background: rgba(0, 180, 219, 0.3);
+        }
+        
+        .padviram-link {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .padviram-link a {
+            color: #00b4db;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 20px;
+            border: 1px solid #00b4db;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .padviram-link a:hover {
+            background: #00b4db;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #a1c4fd;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .features {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Powered Interview Coaching</h1>
+            <p class="subtitle">Practice with AI and get real-time feedback to ace your next job interview</p>
+        </header>
+        
+        <div class="content">
+            <div class="main-content">
+                <div class="card">
+                    <h2>Practice Interview Session</h2>
+                    <div class="interview-container">
+                        <div class="webcam-placeholder">
+                            <i class="fas fa-video"></i>
+                            <p>AI interview simulation ready when you are</p>
+                        </div>
+                        
+                        <button class="btn"><i class="fas fa-microphone"></i> Start Practice Session</button>
+                        <button class="btn" style="background:linear-gradient(to right, #f46b45, #eea849)"><i class="fas fa-stop-circle"></i> End Session</button>
+                        
+                        <div class="feedback-container">
+                            <h3>Real-Time Feedback</h3>
+                            <div class="feedback-item">
+                                <p><strong>Speech Clarity:</strong> Good pace, but try to avoid filler words</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="feedback-item">
+                                <p><strong>Content Relevance:</strong> Answers are mostly relevant to questions</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="feedback-item">
+                                <p><strong>Confidence Level:</strong> Moderate - try to speak more assertively</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>How It Works</h2>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-microphone-alt"></i>
+                            <h3>Practice Answers</h3>
+                            <p>Respond to common interview questions</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-brain"></i>
+                            <h3>AI Analysis</h3>
+                            <p>Our AI analyzes your responses in real-time</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Get Feedback</h3>
+                            <p>Receive actionable tips to improve</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="card">
+                    <h2>Interview Questions</h2>
+                    <ul class="question-list">
+                        <li>Tell me about yourself</li>
+                        <li>What are your strengths?</li>
+                        <li>What is your greatest weakness?</li>
+                        <li>Why do you want to work here?</li>
+                        <li>Where do you see yourself in 5 years?</li>
+                        <li>How do you handle stress?</li>
+                        <li>Describe a challenge you overcame</li>
+                    </ul>
+                    <button class="btn" style="width: 100%"><i class="fas fa-random"></i> Random Question</button>
+                </div>
+                
+                <div class="card">
+                    <h2>Performance History</h2>
+                    <p>Your progress over time:</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%"></div>
+                    </div>
+                    <p>Overall Score: <strong>65%</strong></p>
+                    
+                    <h3>Areas to Improve</h3>
+                    <ul>
+                        <li>Reduce use of filler words</li>
+                        <li>Maintain eye contact</li>
+                        <li>Provide more specific examples</li>
+                    </ul>
+                </div>
+                
+                <div class="padviram-link">
+                    <p>This interview coaching platform is powered by</p>
+                    <a href="https://padviram.in" target="_blank">Padviram.in</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 AI Interview Coaching | Powered by Padviram.in Technology</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simulated real-time feedback updates
+        document.addEventListener('DOMContentLoaded', function() {
+            const startBtn = document.querySelector('.btn');
+            const progressBars = document.querySelectorAll('.progress');
+            
+            startBtn.addEventListener('click', function() {
+                alert('Starting practice session with AI...\nAllow microphone access when prompted.');
+                
+                // Simulate progress animation
+                progressBars.forEach(bar => {
+                    const randomWidth = Math.floor(Math.random() * 30) + 60;
+                    bar.style.width = randomWidth + '%';
+                });
+                
+                // Simulate feedback updates
+                const feedbackItems = document.querySelectorAll('.feedback-item p');
+                const feedbackTexts = [
+                    "Speech pattern improved significantly",
+                    "Good use of industry-specific terminology",
+                    "Try to elaborate more on your experiences",
+                    "Body language appears more confident",
+                    "Answer length is appropriate for the question"
+                ];
+                
+                let index = 0;
+                const feedbackInterval = setInterval(() => {
+                    if (index < feedbackItems.length) {
+                        feedbackItems[index].innerHTML = `<strong>Update:</strong> ${feedbackTexts[index]}`;
+                        index++;
+                    } else {
+                        clearInterval(feedbackInterval);
+                    }
+                }, 2000);
+            });
+            
+            // Question list interaction
+            const questions = document.querySelectorAll('.question-list li');
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    questions.forEach(q => q.style.background = 'rgba(255, 255, 255, 0.1)');
+                    this.style.background = 'rgba(0, 180, 219, 0.3)';
+                    alert(`Selected question: "${this.textContent}"\n\nPrepare your answer and click "Start Practice Session" when ready.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
